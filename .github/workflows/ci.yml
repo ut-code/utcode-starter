@@ -3,11 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
-  prettier:
+  format:
     name: Prettier
     runs-on: ubuntu-latest
     steps:
