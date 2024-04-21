@@ -1,7 +1,8 @@
 ---
 title: DOM
 ---
-{/* TODO: Termをつける・不要コメント削除*/}
+
+{/* TODO: Termをつける・不要コメント削除 */}
 
 ## JavaScript から Web サイトの構造を操作しよう
 
@@ -16,14 +17,14 @@ title: DOM
 ```html title="index.html"
 <!doctype html>
 <html lang="ja">
- <head>
-   <meta charset="utf-8" />
-   <title>Title</title>
- </head>
- <body>
-   <p id="hello">Hello World!</p>
-   <script src="./script.js"></script>
- </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <p id="hello">Hello World!</p>
+    <script src="./script.js"></script>
+  </body>
 </html>
 ```
 
@@ -34,7 +35,7 @@ title: DOM
 続いて、この Web サイトの構造を JavaScript を使って操作してみましょう。`script.js` を作成し、下記のコードを書いて実行してください。
 
 ```js title="script.js"
-document.getElementById("hello").textContent = "Hello DOM!"
+document.getElementById("hello").textContent = "Hello DOM!";
 ```
 
 すると、HTML ファイルを書き換えていないのにもかかわらず、文章が "Hello DOM!" に変わりました！
@@ -62,9 +63,17 @@ document.getElementById("hello").style.backgroundColor = "red";
 
 {/* TODO: 画像 */}
 
-ここで出てきた `backgroundColor` というフレーズに聞き覚えがないでしょうか？ 
+ここで出てきた `backgroundColor` というフレーズに聞き覚えがないでしょうか？
 
 そうです！ CSS の章で背景色を変更する際に、`background-color` というプロパティを使いましたね。これらはよく似ていますが、少し違う部分があります。JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降の単語の先頭の文字を大文字にして `backgroundColor` として表す必要があるのです。
+
+:::note[なぜハイフンが使えないのか？]
+
+なぜ JavaScriptでは直接 `background-color` と書くことができないのでしょうか？ 「値と式と演算子」の章を思い出してください。
+
+ハイフン (`-`) は JavaScriptでは引き算を行う演算子なのでした。そのため、`background-color` と書くと、`-` が引き算の演算子として解釈されてしまうのですね。
+
+:::
 
 {/* TODO: まとめ */}
 
@@ -76,7 +85,6 @@ document.getElementById("hello").style.backgroundColor = "red";
 const element = document.getElementById("hello");
 element.textContent = "Hello DOM!";
 ```
-
 
 ---
 
