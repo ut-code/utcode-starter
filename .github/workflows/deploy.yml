@@ -1,4 +1,6 @@
-on: { push: { tags: ["*"] } }
+on:
+  push:
+    branches: main
 
 jobs:
   deploy:
