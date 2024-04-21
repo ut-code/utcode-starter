@@ -1,0 +1,66 @@
+---
+title: 値と演算子
+---
+
+## <Term>値</Term>
+
+```javascript
+document.write("こんにちは、世界！");
+```
+
+上のコードを実行すると、`こんにちは、世界！` が画面に表示されました。
+
+`"こんにちは、世界！"` や `"Hello World!"` のように `"` (ダブルクォーテーション) で囲まれた<Term>**値**</Term>を、<Term>**文字列**</Term>と呼びます。<Term>文字列</Term>は<Term>値</Term>の一種です。
+
+```javascript
+document.write(3);
+```
+
+`1`, `-100`, `4587` といった<Term>**数値**</Term>も<Term>文字列</Term>と同じく<Term>値</Term>の一種ですが、プログラムの中に直接記述することができます。
+
+![値の種類](./value-types.drawio.svg)
+
+## 演算子
+
+{/* prettier-ignore */}
+<Term>**演算子**</Term>を用いると、<Term>値</Term>を用いて計算をすることができます。
+例えば `+` (加算<Term>演算子</Term>) で、足し算の計算を行うことができます。
+
+```javascript
+document.write(3 + 4);
+```
+
+### 代表的な演算子
+
+| 演算子 | 意味   | 例             |
+| ------ | ------ | -------------- |
+| `+`    | 足す   | `1 + 1` は `2` |
+| `-`    | 引く   | `2 - 1` は `1` |
+| `*`    | 掛ける | `2 * 2` は `4` |
+| `/`    | 割る   | `4 / 2` は `2` |
+
+### <Term>演算子</Term>の<Term type="javascriptOperatorPriority">優先順位</Term>
+
+{/* prettier-ignore */}
+<Term>演算子</Term>には、<Term type="javascriptOperatorPriority">優先順位</Term>が設定されています。
+
+```javascript
+document.write(3 + 4 * 5);
+```
+
+数学での計算と同様に、`*` (乗算<Term>演算子</Term>) は `+` より<Term type="javascriptOperatorPriority">優先順位</Term>が高く設定されているため、上記のコードの実行結果は `23` となります。
+
+`3 + 4 * 5` については、先に `4 * 5` が計算されて `20` になり、次に `3 + 20` が計算されることにより、`23` という<Term>値</Term>になります。
+
+### 文字列の結合
+
+```javascript
+document.write("こんにちは、" + "世界！"); // こんにちは、世界！
+document.write("Hello" + "World!"); // HelloWorld!
+```
+
+上のコードを見てください。
+`+` (文字列結合演算子) を用いて文字列が結合されています。
+
+これまで演算子を用いて`3 + 5`といった数値の計算を行っていましたが、演算子は数値だけに用いられるわけではありません。
+覚えておきましょう。

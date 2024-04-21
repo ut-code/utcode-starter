@@ -1,0 +1,114 @@
+---
+title: イベント
+---
+
+import handleClickVideo from "./handle-click.mp4";
+import projectMovieForDom from "./project-movie-for-dom.mp4";
+
+## クリックに応じて JavaScript を実行する
+
+これまで、JavaScript は HTML が読み込まれたタイミングで実行されていました。
+
+ここでは、ボタンがクリックされたり、フォームへの入力が行われたり、ページが読み込まれたりといった何らかのアクションに応じて JavaScript で処理を行う方法を学びます。
+
+例として、ボタンがクリックされたときに `こんにちは、世界！` と表示するようなプログラムを作成してみましょう。
+
+まず、クリックするためのボタンを用意し、`id` 属性をつけておきます。
+ボタンは `<button>` タグを使って作成します。
+
+```html
+<button id="greet-button" type="button">クリック</button>
+```
+
+次に、ボタンがクリックされたときに実行される JavaScript のコードを書いていきます。
+
+```javascript
+function clicked() {
+  document.write("こんにちは、世界！");
+}
+
+document.getElementById("greet-button").onclick = clicked;
+```
+
+<ViewSource url={import.meta.url} path="_samples/handle-click/" />
+
+- `function clicked() { ... }` の部分では、ボタンがクリックされたときに実行される関数を定義しています。
+
+- `document.getElementById("greet-button")` の部分では、先ほどの DOM のセクションと同様に、`id` 属性が `greet-button` である HTML 要素を取得しています。
+
+- `.onclick` と書くことで、要素がクリックされたときに実行される関数にアクセスできます。ここでは、最初の部分で定義した `clicked` 関数を指定しています。
+
+:::warning[関数を指定する際にかっこは使用しない]
+
+最終行で `clicked()` ではなく `clicked` となっていることに注意してください。
+
+もし `clicked()` と書くとこの行が実行されるときに関数が呼び出されてしまいます。ここではあくまで関数を指定したいだけなので、`clicked` と書いています。
+
+:::
+
+<video src={handleClickVideo} muted controls />
+
+:::info[イベント]
+
+ボタンのクリック、フォームへの入力、ページの読み込みなど、Web ページ上で発生するあらゆるアクションを総称してイベントと呼びます。
+
+:::
+
+## 課題
+
+押すと大きく赤文字が表示される「びっくり箱」のようなボタンを作ってみましょう。
+
+<video src={projectMovieForDom} muted controls />
+
+:::tip[文字列の表示]
+
+`document.write()` を使うと、画面上にあったボタンが消えてしまいます。また、文字色やサイズを変えることも困難です。
+
+`document.write()` の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
+
+:::
+
+:::tip[`こんにちは、世界！` を表示する場所]
+
+`button` 要素の `textContent` を書き換えるとボタンの中に `こんにちは、世界！` を表示してしまいます。
+
+ボタンとは別に、あらかじめ `こんにちは、世界！` を表示するための場所を用意しておく必要があります。
+例えば空の `p` 要素を置いておけばよいでしょう。
+
+```html
+<p id="greeting"></p>
+```
+
+:::
+
+<Answer title="びっくり箱">
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <p id="greeting"></p>
+    <button id="button" type="button">ボタン</button>
+  </body>
+</html>
+```
+
+```js
+const greetingElement = document.getElementById("greeting");
+const buttonElement = document.getElementById("button");
+
+function clicked() {
+  greetingElement.textContent = "こんにちは、世界！";
+  greetingElement.style.color = "red";
+  greetingElement.style.fontSize = "40px";
+}
+
+buttonElement.onclick = clicked;
+```
+
+<ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
+
+</Answer>

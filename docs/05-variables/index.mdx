@@ -1,0 +1,102 @@
+---
+title: 変数
+---
+
+## <Term>変数</Term>とは
+
+{/* prettier-ignore */}
+<Term>**変数**</Term>は値を一時的に保存しておくための入れ物で、他のところで再利用することができます。
+プログラムにおける<Term>変数</Term>は、数値だけでなく、<Term>文字列</Term>等を含め、全ての種類の「<Term>値</Term>」を入れることができます。
+
+## <Term>変数</Term>の<Term>宣言</Term>と使用
+
+{/* prettier-ignore */}
+```javascript
+let myName = "田中太郎";
+document.write(myName); // 田中太郎
+```
+
+`let` は、<Term>変数</Term>を<Term>**宣言**</Term>するためのキーワードです。
+
+1 行目では、`myName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"田中太郎"` を<Term>**代入**</Term>しています。
+
+`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
+プログラミングにおける `=` はあくまでも代入の意味で、数学における等号 ($=$) とは意味が異なります。
+
+2 行目では、<Term>変数</Term> `myName` に<Term>代入</Term>されていた<Term>文字列</Term> `"田中太郎"` が画面に表示されます。
+
+## 再代入
+
+```javascript
+let myAge = 14;
+myAge = 13;
+myAge = 15;
+document.write(myAge); // 15
+```
+
+上のコードを見てください。
+一度宣言した変数に、再び代入が行われています。
+これを**再代入**と呼びます。
+
+{/* prettier-ignore */}
+<Term>変数</Term> `myAge` には 2 回再<Term>代入</Term>が行われており、最後に<Term>代入</Term>された `15` が表示されています。
+<Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があるのです。
+
+さらに、再<Term>代入</Term>について詳しく見てみましょう。
+それでは、以下の場合はどうでしょうか。このコードの結果は何でしょう？
+
+```javascript
+let price = 100;
+price = price / 2;
+document.write(price);
+```
+
+<ViewSource url={import.meta.url} path="_samples/compound-assignment" />
+
+{/* prettier-ignore */}
+2行目は `price / 2` が `100 / 2` となり、その結果の `50` が `price` に再代入されています。
+
+![変数の再代入](./reassignment-evaluation.png)
+
+## `const` を用いた宣言
+
+```javascript
+const myName = "田中太郎";
+document.write(myName); // 田中太郎
+```
+
+これまで変数を宣言するために `let` を使ってきましたが、似たものとして `const` というものもあります。
+書き方自体は `let` と同様ですが、少し違いがあります。
+
+```javascript
+const price = 100;
+price = price / 2;
+document.write(price); // このコードはエラーになります。
+```
+
+`let` と同様に再代入をしてみましたが、このコードはエラーになってしまいます。
+なぜなら `const` は再代入が不可能だからです。
+
+:::tip
+
+ここまでの例では、`my name` というフレーズを、`myName` のように記述しています。
+このように、複数の単語にわたるフレーズを、2 語目以降の先頭の文字を大文字にして結合する命名規則を、キャメルケースと呼びます。
+
+:::
+
+## 確認問題
+
+`counter` という名前の変数を作成し初期値を `0` としてください。
+その後、`counter` に `1` を加え、その結果を表示してください。
+
+<Answer title="カウンター">
+
+```javascript
+let counter = 0;
+counter = counter + 1;
+document.write(counter);
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter" />
+
+</Answer>

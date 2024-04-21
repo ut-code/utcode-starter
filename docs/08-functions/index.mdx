@@ -1,0 +1,168 @@
+---
+title: 関数
+---
+
+import returnValueVideo from "./return-value.mp4";
+
+## <Term>関数</Term>とは
+
+数学における関数とは異なり、<Term>JavaScript</Term> をはじめとしたプログラミング言語の文脈における<Term>**関数**</Term>は、基本的には<Term>文</Term>のまとまりに名前を付けたものです。
+
+```javascript
+// 関数を定義しておけば
+function greet() {
+  document.write("こんにちは、世界！");
+}
+
+// 後から呼び出すことができる
+greet(); // こんにちは、世界！
+greet(); // こんにちは、世界！
+```
+
+上のプログラムでは `greet` という名前の関数が定義されており、`{` と `}` で囲まれた部分に `document.write("Hello World!");` という文が記述されています。
+
+{/* prettier-ignore */}
+<Term>関数</Term>を定義すると、<Term>関数</Term>名に続けて丸かっこを記述することにより、その<Term>関数</Term>を実行できるようになります。
+
+このプログラムでは、`greet` <Term>関数</Term>が 2 回呼び出されているので、ブラウザに `こんにちは、世界！` が 2 つ表示されます。
+
+## <Term>**引数**</Term>
+
+{/* prettier-ignore */}
+<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>を与えることができます。
+<Term>引数</Term>にはどんな<Term>値</Term>でも指定できます。
+
+```javascript
+function greet(greetingType, myName) {
+  document.write("Good " + greetingType + ", " + myName + "!");
+}
+
+greet("morning", "佐藤");
+```
+
+{/* prettier-ignore */}
+<Term>引数</Term>名は<Term>関数</Term>名直後の丸かっこ内にコンマ区切りで設定できます。
+上のプログラムで `greet` <Term>関数</Term>は、`greetingType` や `myName` という名前の<Term>引数</Term>をとります。
+関数の中ではこれらは<Term>変数</Term>のように振る舞います。
+
+呼び出し側では、丸かっこの中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。
+このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
+
+![引数](arguments.png)
+
+## <Term>戻り値</Term>
+
+{/* prettier-ignore */}
+<Term>関数</Term>内で **return 文**を用いると、<Term>関数</Term>の実行が停止され、**return 文**の結果が出力されます。
+この値を<Term>**戻り値**</Term>と呼びます。
+ある<Term>値</Term>を<Term>戻り値</Term>として設定して<Term>関数</Term>の実行を終了することを、<Term>関数</Term>がその<Term>値</Term>を<Term>**返す**</Term>と表現します。
+
+```javascript
+function add(a, b) {
+  const sum = a + b;
+  return sum;
+}
+
+document.write(add(3, 4)); // 7
+```
+
+戻り値がなぜ必要なのか不思議に思った人もいるかもしれません。
+今回のコードで、もし **return 文**を用いなければ、以下のようになります。
+
+```javascript
+function add(a, b) {
+  const sum = a + b;
+  // return sum;
+}
+
+document.write(add(3, 4)); // このコードは正しく動きません
+```
+
+今回のコードでは、変数 `sum` が<Term>宣言</Term>されただけなので、return 文 を用いて `sum` を返さないとうまく実行されないのです。
+
+### 確認問題
+
+引数を 2 つとり、その積を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term> `multiply` を定義してください。
+
+<Answer title="2つの積">
+
+```javascript
+function multiply(a, b) {
+  const result = a * b;
+  return result;
+}
+
+document.write(multiply(3, 4));
+```
+
+<ViewSource url={import.meta.url} path="_samples/multiply" />
+
+</Answer>
+
+## 基礎演習
+
+### 最大値
+
+{/* prettier-ignore */}
+<Term>引数</Term>を 2 つとり、そのうち大きい数を<Term>返す</Term><Term>関数</Term> `max` を定義してください。
+
+:::tip
+
+{/* prettier-ignore */}
+<Term>if 文</Term>を使って、`a` が大きい場合と `b` が大きい場合で処理を書き分けます。
+
+:::
+
+<Answer title="大きい数">
+
+```javascript
+function max(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/max" />
+
+</Answer>
+
+## 中級演習
+
+### 携帯電話料金
+
+携帯電話料金を計算する<Term>関数</Term>を作ってみましょう。
+
+```javascript
+function calculateCost(monthlyDataUsage) {
+  // ここに処理を書く
+}
+
+document.write(calculateCost(3.5));
+```
+
+`calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。
+携帯電話料金は、下のルールで決定されるとします。
+
+> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円 / GB)
+> - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
+
+<Answer title="携帯電話料金">
+
+```javascript
+function calculateCost(monthlyDataUsage) {
+  if (monthlyDataUsage < 5.0) {
+    return monthlyDataUsage * 600;
+  } else {
+    return 3000;
+  }
+}
+
+document.write(calculateCost(3.5));
+```
+
+<ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
+
+</Answer>

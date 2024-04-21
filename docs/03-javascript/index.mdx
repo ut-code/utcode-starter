@@ -1,0 +1,47 @@
+---
+title: JavaScript ことはじめ
+---
+
+import writeJavascriptCodeVideo from "./write-javascript-code.mp4";
+
+ここでは JavaScript について学んでいきます。
+**JavaScript** はウェブサイトに動きを与えることができます。
+
+![Web 開発で用いられる言語](./web-development-languages.drawio.svg)
+
+## はじめての JavaScript
+
+<Term>JavaScript</Term> を用いて画面に `こんにちは、世界！` と表示してみましょう。
+
+次の JavaScript のコードを JSFiddle に貼り付けてください。
+
+```javascript
+document.write("こんにちは、世界！");
+```
+
+保存すると、画面に `こんにちは、世界！` と表示されるはずです。
+
+<video src={writeJavascriptCodeVideo} controls />
+
+## JavaScript の基本文法
+
+`document.write` は画面に出力するための命令です。
+
+```javascript
+document.write("Hello World1");
+document.write("Hello World2");
+document.write("Hello World3");
+```
+
+## コメント
+
+`//` から行末までの部分は**コメント**とみなされ、プログラムの実行に影響を与えません。
+この教材内でもプログラムの意味を説明するのに利用していきます。
+
+```javascript
+// この部分はコメントです。
+document.write("Hello World1"); // この部分もコメントです。
+// 次の行はコメントになっているため、プログラムの実行に影響を与えません。
+// document.write("Hello World2");
+document.write("Hello World3");
+```
