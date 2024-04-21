@@ -1,6 +1,84 @@
 ---
 title: DOM
 ---
+{/* TODO: Termをつける・不要コメント削除*/}
+
+## JavaScript から Web サイトの構造を操作しよう
+
+これまでは、HTML ファイルを読み取って構造を作り、それを表示しているだけでした。
+
+{/* TODO: 画像 */}
+
+この構造を JavaScript で直接操作することができます。
+
+まずは準備として、下のような HTML ファイルを用意しましょう。なお、`p` タグは段落を表すタグです。
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+ <head>
+   <meta charset="utf-8" />
+   <title>Title</title>
+ </head>
+ <body>
+   <p id="hello">Hello World!</p>
+   <script src="./script.js"></script>
+ </body>
+</html>
+```
+
+この HTML ファイルをブラウザで開いてみると、"Hello World!" という文字が表示されますね。ここまでは今まで扱ってきた内容と同じです。
+
+{/* TODO: 画像 */}
+
+続いて、この Web サイトの構造を JavaScript を使って操作してみましょう。`script.js` を作成し、下記のコードを書いて実行してください。
+
+```js title="script.js"
+document.getElementById("hello").textContent = "Hello DOM!"
+```
+
+すると、HTML ファイルを書き換えていないのにもかかわらず、文章が "Hello DOM!" に変わりました！
+
+{/* TODO: 画像 */}
+
+上記のコードの各部分について説明します。
+
+説明
+
+{/* TODO: 説明 */}
+{/* TODO: 画像 */}
+
+## JavaScript でスタイルを操作する
+
+JavaScript によって、CSS の章で扱った色や文字サイズなどのスタイルも操作することができます。
+
+下記のコードを実行してみましょう。
+
+```js title="script.js"
+document.getElementById("hello").style.backgroundColor = "red";
+```
+
+すると、背景色が赤色に変わりましたね！
+
+{/* TODO: 画像 */}
+
+ここで出てきた `backgroundColor` というフレーズに聞き覚えがないでしょうか？ 
+
+そうです！ CSS の章で背景色を変更する際に、`background-color` というプロパティを使いましたね。これらはよく似ていますが、少し違う部分があります。JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降の単語の先頭の文字を大文字にして `backgroundColor` として表す必要があるのです。
+
+{/* TODO: まとめ */}
+
+## 補足
+
+`document.getElementById("hello")` の部分を変数に入れて扱うこともできます。こうすると同じ部分に対する操作を簡潔に書くことができますね。
+
+```js title="script.js"
+const element = document.getElementById("hello");
+element.textContent = "Hello DOM!";
+```
+
+
+---
 
 ## <Term>HTML</Term> 要素を <Term>JavaScript</Term> で取得する
 
