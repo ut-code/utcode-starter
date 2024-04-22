@@ -36,7 +36,7 @@ ut.code(); Learn と比べて、以下の点が変わっています。
 
 ## 使い方
 
-[https://lite.learn.utcode.net/](https://learn.utcode.net/) (未定) にアクセスすれば、内容を見ることがで切るようになる予定です。
+[https://lite.learn.utcode.net/](https://learn.utcode.net/) (未定) にアクセスすれば、内容を見ることができるようになる予定です。
 
 ## 開発
 
