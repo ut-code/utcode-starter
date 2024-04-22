@@ -1,4 +1,4 @@
-# ut.code(); Learn
+# ut.code(); Learn Lite
 
 <img alt="ロゴ" src="./static/img/logo.svg" height="200px" />
 
@@ -9,7 +9,8 @@
 
 [English README is here.](./README-en.md)
 
-ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習教材です。[Docusaurus](https://docusaurus.io/) を用いて作られています。
+ut.code(); Learn Lite (仮) は、ut.code(); によって作られた Web 技術の学習教材である ut.code(); Learn を中学生低学年を想定読者としてわかりやすく書き換えたものです。
+[Docusaurus](https://docusaurus.io/) を用いて作られています。
 
 ## 目次
 
@@ -26,12 +27,15 @@ ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習�
 
 ## 概要
 
-ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習教材です。
-様々な Web に関する技術について学ぶことができます。
+ut.code(); Learn と比べて、以下の点が変わっています。
+- 内容の削減
+  - 内容を第一章に絞り、サイドバーのネストも消しています。
+- 言葉遣いの簡略化
+  - 中学生にもわかりやすい言葉に書き換えています。
 
 ## 使い方
 
-[https://learn.utcode.net/](https://learn.utcode.net/) にアクセスすれば、内容を見ることができます。
+[https://lite.learn.utcode.net/](https://learn.utcode.net/) (未定) にアクセスすれば、内容を見ることがで切るようになる予定です。
 
 ## 開発
 
@@ -50,7 +54,8 @@ npm ci
 
 ### 開発用サーバーの起動
 
-次のコマンドを実行することで、開発用のサーバーが起動できます。また、ブラウザが自動で立ち上がり変更した内容をリアルタイムでプレビューできます。
+次のコマンドを実行することで、開発用のサーバーが起動できます。
+また、ブラウザが自動で立ち上がり変更した内容をリアルタイムでプレビューできます。
 
 ```shell
 npm start
