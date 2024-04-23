@@ -8,6 +8,7 @@
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 # OUTDATED. Refer Japanese README for latest readme.
+
 [日本語の README はこちら](./README.md)
 
 ut.code(); Learn is a web learning material created by ut.code(); and built with [Docusaurus](https://docusaurus.io/).
