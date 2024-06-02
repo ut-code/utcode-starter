@@ -153,12 +153,6 @@ export default {
       definition: "JavaScriptの実行エンジンが式から値を生成する動作。",
       referencePage: "/docs/expressions/",
     },
-    javascriptOperatorPriority: {
-      name: "演算子の優先順位 (JavaScript)",
-      definition:
-        "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
-      referencePage: "/docs/expressions/",
-    },
     javascriptStringConcatenation: {
       name: "文字列の結合",
       definition:
