@@ -100,7 +100,9 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ### 問題 1
 
-次のように、画面に `こんにちは、CSS！` と表示して、文字色を緑色、文字サイズを `40px` にしてください。
+次のように、画面に `こんにちは、CSS！` と表示して、文字色を `green` に、背景色を `lightgray` に、文字サイズを `40px` にしてください。
+
+![こんにちは、CSS！](./hello-css.jpg)
 
 <Answer title="こんにちは、CSS！">
 
@@ -112,7 +114,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
     <title>タイトル</title>
   </head>
   <body>
-    <p id="greeting">Hello CSS!</p>
+    <p id="greeting">こんにちは、CSS！</p>
   </body>
 </html>
 ```
@@ -120,6 +122,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 ```css
 #greeting {
   color: green;
+  background-color: lightgray;
   font-size: 40px;
 }
 ```
