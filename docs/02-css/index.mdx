@@ -13,9 +13,9 @@ import writeCssCodeVideo from "./write-css-code.mp4";
 
 まずは、CSS を用いて `こんにちは、世界！` の文字を赤くしてみましょう。
 
-次の HTML のコードと CSS のコードを JSFiddle に貼り付けてください。
+次の HTML のプログラムと CSS のプログラムを JSFiddle に貼り付けてください。
 
-```html title="HTML のコード"
+```html title="HTML のプログラム"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -28,7 +28,7 @@ import writeCssCodeVideo from "./write-css-code.mp4";
 </html>
 ```
 
-```css title="CSS のコード"
+```css title="CSS のプログラム"
 #greeting {
   color: red;
 }
@@ -40,14 +40,14 @@ import writeCssCodeVideo from "./write-css-code.mp4";
 
 ## CSS の仕組み
 
-先ほどのコードを詳しく見ていきます。
+先ほどのプログラムを詳しく見ていきます。
 
 ### `id` 属性の指定
 
 CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。
 このために、スタイルを適用する対象となる HTML 要素に `id` 属性を指定します。
 
-先ほどの例では、HTML のコードで `p` 要素に対して、`greeting` という `id` 属性を指定しました。
+先ほどの例では、HTML のプログラムで `p` 要素に対して、`greeting` という `id` 属性を指定しました。
 
 ```html
 <p id="greeting">こんにちは、世界！</p>
@@ -58,7 +58,7 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 次に、CSS でどの HTML 要素に対してスタイルを適用するのかを指定します。
 ここで、使用するのが**セレクタ**です。
 
-先ほどの例では、CSS のコードで `#greeting` のように書くことで、`greeting` という `id` 属性を持つ HTML 要素に対してスタイルを適用するように指定しています。
+先ほどの例では、CSS のプログラムで `#greeting` のように書くことで、`greeting` という `id` 属性を持つ HTML 要素に対してスタイルを適用するように指定しています。
 
 ```css
 #greeting {
