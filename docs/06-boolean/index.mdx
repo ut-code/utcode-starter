@@ -44,9 +44,9 @@ document.write(true || false); // true
 ハンターは自分が強いときかモンスターが小さいときに戦うべきだとしたら、変数 `shouldFight` は次のようになるでしょう。
 
 ```javascript
-const isMonsterBig = true;
-const isHunterStrong = false;
-const shouldFight = isHunterStrong || !isMonsterBig; // false
+let isMonsterBig = true;
+let isHunterStrong = false;
+let shouldFight = isHunterStrong || !isMonsterBig; // false
 ```
 
 ## 比較<Term>演算子</Term>
@@ -56,7 +56,7 @@ const shouldFight = isHunterStrong || !isMonsterBig; // false
 年齢を判定するプログラムを考えましょう。
 
 ```javascript
-const age = 14;
+let age = 14;
 document.write(age === 15); // false
 document.write(age === 14); // true
 ```
@@ -81,9 +81,9 @@ document.write(age === 14); // true
 年齢を表す変数 `age` と身長を表す変数 `height` が与えられたとして、10 歳以上かつ身長が 120cm 以上でないと乗れないとしたら以下のようになるでしょう。
 
 ```javascript
-const age = 15;
-const height = 155;
-const canRideRollerCoasters = age >= 10 && height >= 120; // true
+let age = 15;
+let height = 155;
+let canRideRollerCoasters = age >= 10 && height >= 120; // true
 ```
 
 :::tip
@@ -102,9 +102,9 @@ const canRideRollerCoasters = age >= 10 && height >= 120; // true
 自分が勝ちかどうかを表す変数 `iAmWinner` を作成してください。
 
 ```javascript
-const myPoint = 120;
-const rivalPoint = 80;
-const iAmWinner = /* ここに式を書いてください */;
+let myPoint = 120;
+let rivalPoint = 80;
+let iAmWinner = /* ここに式を書いてください */;
 document.write(iAmWinner); // true
 ```
 
@@ -113,7 +113,7 @@ document.write(iAmWinner); // true
 `+`, `-`, `*`, `/` などの算術演算子は、比較演算子よりも先に計算されます。
 
 ```javascript
-const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
+let isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
 ```
 
 :::
@@ -121,7 +121,7 @@ const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
 <Answer title="クイズ番組">
 
 ```javascript
-const iAmWinner = myPoint >= 100 && myPoint - rivalPoint >= 20;
+let iAmWinner = myPoint >= 100 && myPoint - rivalPoint >= 20;
 ```
 
 </Answer>

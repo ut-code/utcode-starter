@@ -1,5 +1,5 @@
-const greetingElement = document.getElementById("greeting");
-const buttonElement = document.getElementById("button");
+let greetingElement = document.getElementById("greeting");
+let buttonElement = document.getElementById("button");
 
 function clicked() {
   greetingElement.textContent = "こんにちは、世界！";

@@ -31,7 +31,7 @@ document.write(Math.random()); // 0.8924949384481442
 - 発生させた乱数を `r` などの名前の<Term>変数</Term>に保存して確率の計算に使いましょう。すると、例えば `r` が 0 以上 0.2 未満になる確率は 20% になりますね。
 
 ```javascript
-const r = Math.random();
+let r = Math.random();
 if (r < 0.2) {
   // 20%の確率で実行される
 } else if (条件式2) {
@@ -49,8 +49,8 @@ if (r < 0.2) {
 ```
 
 ```javascript
-const omikujiButton = document.getElementById("omikuji-button");
-const result = document.getElementById("result");
+let omikujiButton = document.getElementById("omikuji-button");
+let result = document.getElementById("result");
 
 function omikuji() {
   result.textContent = "結果";
@@ -95,7 +95,7 @@ function start() {
   setInterval(関数名, 1000);
 }
 
-const startButton = document.getElementById("start-button");
+let startButton = document.getElementById("start-button");
 startButton.onclick = start;
 ```
 
@@ -122,8 +122,8 @@ function stop() {
   clearInterval(timerId);
 }
 
-const startButton = document.getElementById("start-button");
-const stopButton = document.getElementById("stop-button");
+let startButton = document.getElementById("start-button");
+let stopButton = document.getElementById("stop-button");
 startButton.onclick = start;
 stopButton.onclick = stop;
 ```

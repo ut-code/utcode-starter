@@ -1,3 +1,3 @@
-const item = document.getElementById("item2");
+let item = document.getElementById("item2");
 
 item.textContent = "レモン";

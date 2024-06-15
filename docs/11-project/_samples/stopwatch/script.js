@@ -15,8 +15,8 @@ function stop() {
   clearInterval(timerId);
 }
 
-const timer = document.getElementById("timer");
-const startButton = document.getElementById("start-button");
-const stopButton = document.getElementById("stop-button");
+let timer = document.getElementById("timer");
+let startButton = document.getElementById("start-button");
+let stopButton = document.getElementById("stop-button");
 startButton.onclick = start;
 stopButton.onclick = stop;

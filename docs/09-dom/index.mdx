@@ -97,7 +97,7 @@ document.getElementById("greeting").style.fontSize = "100px";
 `document.getElementById("greeting")` の部分を変数に入れて扱うこともできます。こうすると同じ要素に対する操作を簡潔に書くことができますね。
 
 ```js
-const greetingElement = document.getElementById("greeting");
+let greetingElement = document.getElementById("greeting");
 
 greetingElement.textContent = "こんばんは、世界！";
 greetingElement.style.backgroundColor = "red";
@@ -124,7 +124,7 @@ JavaScript を使ってこの買い物リストを書き換えて、「リンゴ
 <Answer title="買い物リストの書き換え">
 
 ```js
-const item = document.getElementById("item2");
+let item = document.getElementById("item2");
 
 item.textContent = "レモン";
 ```
