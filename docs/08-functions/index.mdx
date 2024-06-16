@@ -2,60 +2,157 @@
 title: 関数
 ---
 
-import returnValueVideo from "./return-value.mp4";
+## 関数の基本
 
-## <Term>関数</Term>とは
+数学における関数とは異なり、プログラミング言語における**関数**は、基本的には<Term>文</Term>のまとまりに名前を付けたものです。
 
-数学における関数とは異なり、<Term>JavaScript</Term> をはじめとしたプログラミング言語の文脈における<Term>**関数**</Term>は、基本的には<Term>文</Term>のまとまりに名前を付けたものです。
+次のプログラムを実行すると、`こんにちは、世界！こんにちは、世界！` と表示されます。
 
-```javascript
-// 関数を定義しておけば
+```javascript showLineNumbers
+// 関数を定義しておけば、
 function greet() {
   document.write("こんにちは、世界！");
 }
 
-// 後から呼び出すことができる
+// 後から何度も呼び出すことができます。
 greet(); // こんにちは、世界！
 greet(); // こんにちは、世界！
 ```
 
-上のプログラムでは `greet` という名前の関数が定義されており、`{` と `}` で囲まれた部分に `document.write("Hello World!");` という文が記述されています。
+2 行目から 4 行目で<Term>関数</Term>を定義しています。
+ここでは、`{` と `}` で囲まれた部分の<Term>文</Term>のまとまりに `greet` という名前を付けています。
 
-{/* prettier-ignore */}
-<Term>関数</Term>を定義すると、<Term>関数</Term>名に続けて丸かっこを記述することにより、その<Term>関数</Term>を実行できるようになります。
+7 行目と 8 行目で、関数 `greet` を 2 回呼び出しています。
+このように、関数名に続けて `()` を記述することにより、<Term>関数</Term>を呼び出すことができます。
+これにより、`こんにちは、世界！` が 2 回表示されます。
 
-このプログラムでは、`greet` <Term>関数</Term>が 2 回呼び出されているので、ブラウザに `こんにちは、世界！` が 2 つ表示されます。
+### 確認問題
 
-## <Term>**引数**</Term>
-
-{/* prettier-ignore */}
-<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>を与えることができます。
-<Term>引数</Term>にはどんな<Term>値</Term>でも指定できます。
+`はじめまして。` と自己紹介をする関数 `introduceSelf` を定義して、呼び出してください。
 
 ```javascript
-function greet(greetingType, myName) {
-  document.write("Good " + greetingType + ", " + myName + "!");
+function introduceSelf() {
+  // ここに関数が行う処理を書いてください。
 }
 
-greet("morning", "佐藤");
+// ここで関数を呼び出してください。
 ```
 
-{/* prettier-ignore */}
-<Term>引数</Term>名は<Term>関数</Term>名直後の丸かっこ内にコンマ区切りで設定できます。
-上のプログラムで `greet` <Term>関数</Term>は、`greetingType` や `myName` という名前の<Term>引数</Term>をとります。
-関数の中ではこれらは<Term>変数</Term>のように振る舞います。
+<Answer title="自己紹介">
 
-呼び出し側では、丸かっこの中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。
-このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
+```javascript
+function introduceSelf() {
+  document.write("はじめまして。");
+}
 
-![引数](arguments.png)
+introduceSelf();
+```
 
-## <Term>戻り値</Term>
+<ViewSource url={import.meta.url} path="_samples/self-introduction" />
 
-{/* prettier-ignore */}
-<Term>関数</Term>内で **return 文**を用いると、<Term>関数</Term>の実行が停止され、**return 文**の結果が出力されます。
-この値を<Term>**戻り値**</Term>と呼びます。
-ある<Term>値</Term>を<Term>戻り値</Term>として設定して<Term>関数</Term>の実行を終了することを、<Term>関数</Term>がその<Term>値</Term>を<Term>**返す**</Term>と表現します。
+</Answer>
+
+## 引数
+
+関数の振る舞いを呼び出し時に変えるため、関数に**引数**を与えることができます。<Term>引数</Term>にはどんな<Term>値</Term>でも指定できます。
+
+次のプログラムを実行すると、`こんにちは、田中さん！こんにちは、鈴木さん！` と表示されます。
+
+```javascript showLineNumbers
+function greet(name) {
+  document.write("こんにちは、" + name + "さん！");
+}
+
+greet("田中"); // こんにちは、田中さん！
+greet("鈴木"); // こんにちは、鈴木さん！
+```
+
+`greet` 関数には、`name` という<Term>引数</Term>が定義されています。
+
+`greet("田中");` のように関数を呼び出すと、`"田中"` という<Term>値</Term>が<Term>引数</Term>として指定されます。
+
+この<Term>値</Term>は、関数内では `name` という<Term>引数</Term>として扱われます。
+
+関数の中では<Term>引数</Term>は<Term>変数</Term>のように振る舞うため、`document.write("こんにちは、" + name + "さん！");` を実行すると、`"こんにちは、田中さん！"` が表示されます。
+
+### 確認問題
+
+名前を表す引数 `name` を取り、`はじめまして。私の名前は〇〇です。` と自己紹介をする関数 `introduceSelf` を定義して、呼び出してください。
+
+```javascript
+function introduceSelf(name) {
+  // ここに関数が行う処理を書いてください。
+}
+
+// ここで関数を呼び出してください。
+```
+
+<Answer title="自己紹介">
+
+```javascript
+function introduceSelf(name) {
+  document.write("はじめまして。私の名前は" + name + "です。");
+}
+
+introduceSelf("田中");
+```
+
+<ViewSource url={import.meta.url} path="_samples/self-introduction-with-name" />
+
+</Answer>
+
+## 複数の引数
+
+複数の<Term>引数</Term>を取る関数を定義することもできます。
+
+次のプログラムを実行すると、`おはよう、田中さん！こんにちは、鈴木さん！` と表示されます。
+
+```javascript
+function greet(greetingMessage, name) {
+  document.write(greetingMessage + "、" + name + "さん！");
+}
+
+greet("おはよう", "田中");
+greet("こんにちは", "鈴木");
+```
+
+`greet("おはよう", "田中");` のように関数を呼び出すと、`"おはよう"` が `greetingMessage` という<Term>引数</Term>に、`"田中"` が `name` という<Term>引数</Term>にそれぞれ指定されます。
+
+### 確認問題
+
+`name` と `age` という引数を取り、`はじめまして。私の名前は〇〇です。〇〇歳です。` と自己紹介をする関数 `introduceSelf` を定義してください。
+
+```javascript
+// ここで関数を定義してください。
+
+// ここで関数を呼び出してください。
+```
+
+<Answer title="自己紹介">
+
+```javascript
+function introduceSelf(name, age) {
+  document.write(
+    "はじめまして。私の名前は" + name + "です。" + age + "歳です。",
+  );
+}
+
+introduceSelf("田中", 12);
+```
+
+<ViewSource
+  url={import.meta.url}
+  path="_samples/self-introduction-with-name-and-age"
+/>
+
+</Answer>
+
+## 戻り値
+
+関数内から関数の呼び出し元に<Term>値</Term>を返すことができます。
+また、この<Term>値</Term>を**戻り値**と呼びます。
+
+次のプログラムを実行すると、`1と2の和は3です。` と表示されます。
 
 ```javascript
 function add(a, b) {
@@ -63,28 +160,29 @@ function add(a, b) {
   return sum;
 }
 
-document.write(add(3, 4)); // 7
+let answer = add(1, 2);
+document.write("1と2の和は" + age + "です。"); // 1と2の和は3です。
 ```
 
-戻り値がなぜ必要なのか不思議に思った人もいるかもしれません。
-今回のコードで、もし **return 文**を用いなければ、以下のようになります。
+`return sum` のようにすることで、そこで関数の実行を停止し、関数の呼び出し元に変数 `sum` の<Term>値</Term>を<Term>戻り値</Term>として返すことができます。そのため、`add(1, 2)` のように関数を呼び出すと、引数 `a` は `1`、引数 `b` は `2`となり、`sum` が `3` となるので、`3` が<Term>戻り値</Term>となります。
 
-```javascript
-function add(a, b) {
-  let sum = a + b;
-  // return sum;
-}
-
-document.write(add(3, 4)); // このコードは正しく動きません
-```
-
-今回のコードでは、変数 `sum` が<Term>宣言</Term>されただけなので、return 文 を用いて `sum` を返さないとうまく実行されないのです。
+このため、`add(1, 2)` は戻り値として返ってきた `3` になり、この<Term>値</Term>が `answer` に代入されます。
+これにより、`1と2の和は3です。` と表示されます。
 
 ### 確認問題
 
-引数を 2 つとり、その積を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term> `multiply` を定義してください。
+引数 `a` と `b` をとり、その積を<Term>戻り値</Term>として返す関数 `multiply` を定義して、呼び出してください。
 
-<Answer title="2つの積">
+```javascript
+function multiply(a, b) {
+  // ここに関数が行う処理を書いてください。
+}
+
+let answer = /* ここで関数を呼び出してください */;
+document.write("3と4の積は" + answer + "です。");
+```
+
+<Answer title="積">
 
 ```javascript
 function multiply(a, b) {
@@ -92,75 +190,82 @@ function multiply(a, b) {
   return result;
 }
 
-document.write(multiply(3, 4));
+let answer = multiply(3, 4);
+document.write("3と4の積は" + answer + "です。");
 ```
 
 <ViewSource url={import.meta.url} path="_samples/multiply" />
 
 </Answer>
 
-## 基礎演習
+## 演習問題
 
-### 最大値
+### 問題 1
 
-{/* prettier-ignore */}
-<Term>引数</Term>を 2 つとり、そのうち大きい数を<Term>返す</Term><Term>関数</Term> `max` を定義してください。
+あるテーマパークの入場料金は、12 歳以上なら 1000 円、12 歳未満なら 500 円です。
 
-:::tip
+このテーマパークの入場料金を計算する関数を作ってみましょう。
 
-{/* prettier-ignore */}
-<Term>if 文</Term>を使って、`a` が大きい場合と `b` が大きい場合で処理を書き分けます。
-
-:::
-
-<Answer title="大きい数">
+年齢を表す引数 `age` を取り、12 以上なら `1000`、12 未満なら `500` を<Term>戻り値</Term>として返す関数 `calculateTicketPrice` を定義して、呼び出してください。
 
 ```javascript
-function max(a, b) {
-  if (a > b) {
-    return a;
+function calculateTicketPrice(age) {
+  if (/* ここに条件を書いてください。 */) {
+    return /* ここに12歳以上の料金を書いてください。 */;
   } else {
-    return b;
+    return /* ここに12歳未満の料金を書いてください。 */;
   }
 }
+
+document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
 ```
 
-<ViewSource url={import.meta.url} path="_samples/max" />
+<Answer title="入場料金">
+
+```javascript
+function calculateTicketPrice(age) {
+  if (age >= 12) {
+    return 1000;
+  } else {
+    return 500;
+  }
+}
+
+document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
+```
+
+<ViewSource url={import.meta.url} path="_samples/ticket-price" />
 
 </Answer>
 
-## 中級演習
+### 問題 2
 
-### 携帯電話料金
+ある携帯会社の携帯電話料金は、データ使用量が 5 GB 以上なら 3000 円、5 GB 未満ならデータ使用量 × 600 円です。
 
-携帯電話料金を計算する<Term>関数</Term>を作ってみましょう。
+携帯電話料金を計算する関数を作ってみましょう。
+
+データ使用量を表す引数 `monthlyDataUsage` を取り、料金を<Term>戻り値</Term>として返す関数 `calculateCost` を定義して、呼び出してください。
 
 ```javascript
 function calculateCost(monthlyDataUsage) {
-  // ここに処理を書く
+  // ここに関数が行う処理を書いてください。
 }
 
-document.write(calculateCost(3.5));
+document.write("携帯電話料金は" + calculateCost(3) + "円です。");
 ```
-
-`calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。
-携帯電話料金は、下のルールで決定されるとします。
-
-> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円 / GB)
-> - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
 
 <Answer title="携帯電話料金">
 
 ```javascript
 function calculateCost(monthlyDataUsage) {
-  if (monthlyDataUsage < 5.0) {
+  if (monthlyDataUsage < 5) {
     return monthlyDataUsage * 600;
   } else {
     return 3000;
   }
 }
 
-document.write(calculateCost(3.5));
+document.write("携帯電話料金は" + calculateCost(3) + "円です。");
 ```
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
