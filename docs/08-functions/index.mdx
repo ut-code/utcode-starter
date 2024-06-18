@@ -23,7 +23,7 @@ greet(); // こんにちは、世界！
 ここでは、`{` と `}` で囲まれた部分の<Term>文</Term>のまとまりに `greet` という名前を付けています。
 
 7 行目と 8 行目で、関数 `greet` を 2 回呼び出しています。
-このように、関数名に続けて `()` を記述することにより、<Term>関数</Term>を呼び出すことができます。
+このように、関数名に続けて `()` を書くことにより、<Term>関数</Term>を呼び出すことができます。
 これにより、`こんにちは、世界！` が 2 回表示されます。
 
 ### 確認問題
@@ -73,11 +73,11 @@ greet("鈴木"); // こんにちは、鈴木さん！
 
 この<Term>値</Term>は、関数内では `name` という<Term>引数</Term>として扱われます。
 
-関数の中では<Term>引数</Term>は<Term>変数</Term>のように振る舞うため、`document.write("こんにちは、" + name + "さん！");` を実行すると、`"こんにちは、田中さん！"` が表示されます。
+関数の中では<Term>引数</Term>は<Term>変数</Term>のように振る舞うため、`document.write("こんにちは、" + name + "さん！");` を実行すると、`こんにちは、田中さん！` が表示されます。
 
 ### 確認問題
 
-名前を表す引数 `name` を取り、`はじめまして。私の名前は〇〇です。` と自己紹介をする関数 `introduceSelf` を定義して、呼び出してください。
+名前を表す引数 `name` を受け取り、`はじめまして。私の名前は〇〇です。` と自己紹介をする関数 `introduceSelf` を定義して、呼び出してください。
 
 ```javascript
 function introduceSelf(name) {
@@ -103,7 +103,7 @@ introduceSelf("田中");
 
 ## 複数の引数
 
-複数の<Term>引数</Term>を取る関数を定義することもできます。
+複数の<Term>引数</Term>を受け取る関数を定義することもできます。
 
 次のプログラムを実行すると、`おはよう、田中さん！こんにちは、鈴木さん！` と表示されます。
 
@@ -120,7 +120,7 @@ greet("こんにちは", "鈴木");
 
 ### 確認問題
 
-`name` と `age` という引数を取り、`はじめまして。私の名前は〇〇です。〇〇歳です。` と自己紹介をする関数 `introduceSelf` を定義してください。
+`name` と `age` という引数を受け取り、`はじめまして。私の名前は〇〇です。〇〇歳です。` と自己紹介をする関数 `introduceSelf` を定義してください。
 
 ```javascript
 // ここで関数を定義してください。
@@ -161,7 +161,7 @@ function add(a, b) {
 }
 
 let answer = add(1, 2);
-document.write("1と2の和は" + age + "です。"); // 1と2の和は3です。
+document.write("1と2の和は" + answer + "です。"); // 1と2の和は3です。
 ```
 
 `return sum` のようにすることで、そこで関数の実行を停止し、関数の呼び出し元に変数 `sum` の<Term>値</Term>を<Term>戻り値</Term>として返すことができます。そのため、`add(1, 2)` のように関数を呼び出すと、引数 `a` は `1`、引数 `b` は `2`となり、`sum` が `3` となるので、`3` が<Term>戻り値</Term>となります。
@@ -186,8 +186,8 @@ document.write("3と4の積は" + answer + "です。");
 
 ```javascript
 function multiply(a, b) {
-  let result = a * b;
-  return result;
+  let product = a * b;
+  return product;
 }
 
 let answer = multiply(3, 4);
@@ -202,18 +202,18 @@ document.write("3と4の積は" + answer + "です。");
 
 ### 問題 1
 
-あるテーマパークの入場料金は、12 歳以上なら 1000 円、12 歳未満なら 500 円です。
+あるテーマパークの入場料金は、12 歳未満なら 500 円、12 歳以上なら 1000 円です。
 
 このテーマパークの入場料金を計算する関数を作ってみましょう。
 
-年齢を表す引数 `age` を取り、12 以上なら `1000`、12 未満なら `500` を<Term>戻り値</Term>として返す関数 `calculateTicketPrice` を定義して、呼び出してください。
+年齢を表す引数 `age` を受け取り、12 未満なら `500`、12 以上なら `1000` を<Term>戻り値</Term>として返す関数 `calculateTicketPrice` を定義して、呼び出してください。
 
 ```javascript
 function calculateTicketPrice(age) {
   if (/* ここに条件を書いてください。 */) {
-    return /* ここに12歳以上の料金を書いてください。 */;
-  } else {
     return /* ここに12歳未満の料金を書いてください。 */;
+  } else {
+    return /* ここに12歳以上の料金を書いてください。 */;
   }
 }
 
@@ -224,10 +224,10 @@ document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
 
 ```javascript
 function calculateTicketPrice(age) {
-  if (age >= 12) {
-    return 1000;
-  } else {
+  if (age < 12) {
     return 500;
+  } else {
+    return 1000;
   }
 }
 
@@ -240,11 +240,11 @@ document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
 
 ### 問題 2
 
-ある携帯会社の携帯電話料金は、データ使用量が 5 GB 以上なら 3000 円、5 GB 未満ならデータ使用量 × 600 円です。
+ある携帯会社の携帯電話料金は、データ使用量が 5 GB 未満ならデータ使用量 × 600 円、5 GB 以上なら 3000 円です。
 
 携帯電話料金を計算する関数を作ってみましょう。
 
-データ使用量を表す引数 `monthlyDataUsage` を取り、料金を<Term>戻り値</Term>として返す関数 `calculateCost` を定義して、呼び出してください。
+データ使用量を表す引数 `monthlyDataUsage` を受け取り、料金を<Term>戻り値</Term>として返す関数 `calculateCost` を定義して、呼び出してください。
 
 ```javascript
 function calculateCost(monthlyDataUsage) {

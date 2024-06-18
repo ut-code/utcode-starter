@@ -1,8 +1,8 @@
 function calculateTicketPrice(age) {
-  if (age >= 12) {
-    return 1000;
-  } else {
+  if (age < 12) {
     return 500;
+  } else {
+    return 1000;
   }
 }
 
