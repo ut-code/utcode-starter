@@ -29,7 +29,7 @@ document.write(myName); // 田中太郎
 
 ## 再代入
 
-一度宣言した変数に、新しい<Term>値</Term>を再び代入することができます。
+一度代入が行われた変数に、新しい<Term>値</Term>を再び代入することができます。
 これを**再代入**と呼びます。
 
 次のプログラムは、2 回再代入を行っており、最後に再代入された<Term>値</Term> `12` が表示されます。
@@ -44,7 +44,7 @@ document.write(myAge); // 12
 再代入について、さらに詳しく見ていきましょう。
 次のプログラムを実行すると、何と表示されるでしょうか。
 
-```javascript
+```javascript showLineNumbers
 let price = 100;
 price = price / 2;
 document.write(price);
@@ -59,20 +59,21 @@ document.write(price);
 
 :::tip
 
-ここまでの例では、`my name` というフレーズを、`myName` のように書いてきました。
-このように、複数の単語にわたるフレーズを、2 語目以降の先頭の文字を大文字にして結合する命名規則を、キャメルケースと呼びます。
+ここまでの例では、変数を宣言する時に `my name` というフレーズを `myName` のように書いてきました。
+JavaScript では変数の名前は、複数の単語にわたるフレーズを 2 語目以降の先頭の文字を大文字にして結合します。
 
 :::
 
 ## 演習問題
 
-`counter` という名前の変数を作成し初期値を `0` としてください。
-その後、変数 `counter` に `1` を足し、その結果を表示してください。
+`counter` という名前の変数を作成し初期値を `0` として、変数 `counter` に代入されている<Term>値</Term>を表示してください。
+その後、変数 `counter` に `1` を足し、変数 `counter` に代入されている<Term>値</Term>を表示してください。
 
 <Answer title="カウンター">
 
 ```javascript
 let counter = 0;
+document.write(counter);
 counter = counter + 1;
 document.write(counter);
 ```
