@@ -1,4 +1,4 @@
 let score = 85;
-if (80 <= score) {
+if (score >= 80) {
   document.write("合格です。");
 }
