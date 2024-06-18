@@ -15,7 +15,8 @@ document.write(true);
 
 このように<Term>論理値</Term>は、ダブルクォーテーション `"` を使わずに直接 `true` (「正しい」という意味) または `false` (「正しくない」という意味) と書くことにより表現します。
 
-通常の<Term>値</Term>なので、<Term>変数</Term>に<Term>代入</Term>したり、計算に使ったりすることができます。
+{/* prettier-ignore */}
+<Term>論理値</Term>も<Term>文字列</Term>や<Term>数値</Term>と同じように<Term>値</Term>の一種なので、<Term>変数</Term>に<Term>代入</Term>したり、計算に使ったりすることができます。
 
 ![値の種類・論理値付き](./value-types-with-boolean.drawio.svg)
 
@@ -95,7 +96,7 @@ let canRideRollerCoasters = age >= 10 && height >= 120; // true
 :::tip
 
 `&&` や `||` などの論理演算子よりも比較演算子のほうが先に計算されます。
-そのため、この例では `age >= 10` と `height >= 120` がそれぞれ先に計算され、その結果に対して `&&` が使われています。
+そのため、`age >= 10 && height >= 120` は `(age >= 10) && (height >= 120)` と同じ意味になります。
 
 :::
 
@@ -123,5 +124,12 @@ let isTanakaWinner = tanakaScore >= 100 && tanakaScore - suzukiScore >= 20;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/quiz-program" />
+
+:::tip
+
+`+`、`-`、`*`、`/` などの演算子は、比較演算子よりも先に計算されます。
+そのため、`tanakaScore - suzukiScore >= 20` は `(tanakaScore - suzukiScore) >= 20` と同じ意味になります。
+
+:::
 
 </Answer>
