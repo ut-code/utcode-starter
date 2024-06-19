@@ -58,25 +58,6 @@ document.write(price);
 
 ![変数の再代入](./reassignment-evaluation.png)
 
-## `const` を用いた宣言
-
-```javascript
-const myName = "田中太郎";
-document.write(myName); // 田中太郎
-```
-
-これまで変数を宣言するために `let` を使ってきましたが、似たものとして `const` というものもあります。
-書き方自体は `let` と同様ですが、少し違いがあります。
-
-```javascript
-const price = 100;
-price = price / 2;
-document.write(price); // このコードはエラーになります。
-```
-
-`let` と同様に再代入をしてみましたが、このコードはエラーになってしまいます。
-なぜなら `const` は再代入が不可能だからです。
-
 :::tip
 
 ここまでの例では、`my name` というフレーズを、`myName` のように記述しています。
