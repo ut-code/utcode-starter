@@ -14,7 +14,7 @@ HTML の要素を JavaScript で直接操作することができます。
 
 準備として、下のような HTML を用意しましょう。
 
-```html title="HTML のコード"
+```html title="HTML のプログラム"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -33,7 +33,7 @@ HTML の要素を JavaScript で直接操作することができます。
 ![こんにちは、世界！と表示された画面](./before-change.jpg)
 
 では、この ウェブサイトの HTML 要素を JavaScript を使って操作してみましょう。
-下記の JavaScript のコードを書いて実行してください。
+下記の JavaScript のプログラムを書いて実行してください。
 
 ```js
 document.getElementById("greeting").textContent = "こんばんは、世界！";
@@ -41,11 +41,11 @@ document.getElementById("greeting").textContent = "こんばんは、世界！";
 
 <ViewSource url={import.meta.url} path="_samples/get-element-by-id" />
 
-すると、HTML のコードを書き換えていないのにもかかわらず、テキストが `こんばんは、世界！` に変わりました。
+すると、HTML のプログラムを書き換えていないのにもかかわらず、テキストが `こんばんは、世界！` に変わりました。
 
 ![こんばんは、世界！と表示された画面](./changed-by-dom.jpg)
 
-上記のコードの各部分について説明します。
+上記のプログラムの各部分について説明します。
 
 - `document.getElementById("greeting")` の部分で、`id` 属性が `greeting` である要素を取得しています。
 - `.textContent` と書くことで要素の中身のテキストにアクセスでき、テキストの取得や変更が行えます。ここでは `こんにちは、世界！` という文字列に変更しています。
@@ -54,7 +54,7 @@ document.getElementById("greeting").textContent = "こんばんは、世界！";
 
 CSS の章で扱った「色」や「文字サイズ」などのスタイルも JavaScript から操作することができます。
 
-下記のコードを実行してみましょう。
+下記のプログラムを実行してみましょう。
 
 ```js
 document.getElementById("greeting").style.backgroundColor = "red";
