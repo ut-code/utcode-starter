@@ -77,7 +77,8 @@ greet("鈴木"); // こんにちは、鈴木さん！
 
 ### 確認問題
 
-名前を表す引数 `name` を受け取り、`はじめまして。私の名前は〇〇です。` と自己紹介をする関数 `introduceSelf` を定義して、呼び出してください。
+名前を表す引数 `name` を受け取り、`はじめまして。私の名前は〇〇です。` と自己紹介をする関数 `introduceSelf` を定義してください。
+そして、引数に `"田中"` を与えて呼び出してください。
 
 ```javascript
 function introduceSelf(name) {
@@ -121,6 +122,7 @@ greet("こんにちは", "鈴木");
 ### 確認問題
 
 `name` と `age` という引数を受け取り、`はじめまして。私の名前は〇〇です。〇〇歳です。` と自己紹介をする関数 `introduceSelf` を定義してください。
+そして、12 歳の田中さんの自己紹介をしてください。
 
 ```javascript
 // ここで関数を定義してください。
@@ -171,7 +173,8 @@ document.write("1と2の和は" + answer + "です。"); // 1と2の和は3で�
 
 ### 確認問題
 
-引数 `a` と `b` をとり、その積を<Term>戻り値</Term>として返す関数 `multiply` を定義して、呼び出してください。
+引数 `a` と `b` をとり、その積を<Term>戻り値</Term>として返す関数 `multiply` を定義してください。
+そして、その関数を使って、 3 と 4 の積を計算してください。
 
 ```javascript
 function multiply(a, b) {
@@ -206,7 +209,8 @@ document.write("3と4の積は" + answer + "です。");
 
 このテーマパークの入場料金を計算する関数を作ってみましょう。
 
-年齢を表す引数 `age` を受け取り、12 未満なら `500`、12 以上なら `1000` を<Term>戻り値</Term>として返す関数 `calculateTicketPrice` を定義して、呼び出してください。
+年齢を表す引数 `age` を受け取り、12 未満なら `500`、12 以上なら `1000` を<Term>戻り値</Term>として返す関数 `calculateTicketPrice` を定義してください。
+そして、その関数を使って、12 歳の人の入場料金を計算してください。
 
 ```javascript
 function calculateTicketPrice(age) {
@@ -217,7 +221,7 @@ function calculateTicketPrice(age) {
   }
 }
 
-document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
+document.write("12 歳の人の入場料金は" + calculateTicketPrice(12) + "円です。");
 ```
 
 <Answer title="入場料金">
@@ -244,7 +248,8 @@ document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
 
 携帯電話料金を計算する関数を作ってみましょう。
 
-データ使用量を表す引数 `monthlyDataUsage` を受け取り、料金を<Term>戻り値</Term>として返す関数 `calculateCost` を定義して、呼び出してください。
+データ使用量を表す引数 `monthlyDataUsage` を受け取り、料金を<Term>戻り値</Term>として返す関数 `calculateCost` を定義してください。
+そして、通信量が 3 GB のときの料金を計算してください。
 
 ```javascript
 function calculateCost(monthlyDataUsage) {
@@ -265,7 +270,7 @@ function calculateCost(monthlyDataUsage) {
   }
 }
 
-document.write("携帯電話料金は" + calculateCost(3) + "円です。");
+document.write("通信量が 3GB のときの携帯電話料金は" + calculateCost(3) + "円です。");
 ```
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
