@@ -173,6 +173,40 @@ document.write("1と2の和は" + answer + "です。"); // 1と2の和は3で�
 
 ### 確認問題
 
+#### 問題 1
+
+先ほど作った関数 `add` を 2 回呼び出して、`1と2の和は3で、3と4の和は7です。` と表示してください。
+
+```javascript
+function add(a, b) {
+  let sum = a + b;
+  return sum;
+}
+
+let answer1 = /* ここで関数を呼び出し、1と2の和を求めてください。 */;
+let answer2 = /* ここで関数を呼び出し、3と4の和を求めてください。 */;
+document.write("1と2の和は" + answer1 + "で、3と4の和は" + answer2 + "です。");
+```
+
+<Answer title="和">
+
+```javascript
+function add(a, b) {
+  let sum = a + b;
+  return sum;
+}
+
+let answer1 = add(1, 2);
+let answer2 = add(3, 4);
+document.write("1と2の和は" + answer1 + "で、3と4の和は" + answer2 + "です。");
+```
+
+<ViewSource url={import.meta.url} path="_samples/add" />
+
+</Answer>
+
+#### 問題 2
+
 引数 `a` と `b` をとり、その積を<Term>戻り値</Term>として返す関数 `multiply` を定義してください。
 そして、引数に `3` と `4` を与えて呼び出してください。
 
@@ -181,7 +215,7 @@ function multiply(a, b) {
   // ここに関数が行う処理を書いてください。
 }
 
-let answer = /* ここで関数を呼び出してください */;
+let answer = /* ここで関数を呼び出してください。 */;
 document.write("3と4の積は" + answer + "です。");
 ```
 
