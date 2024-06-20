@@ -6,4 +6,6 @@ function calculateCost(monthlyDataUsage) {
   }
 }
 
-document.write("携帯電話料金は" + calculateCost(3) + "円です。");
+document.write(
+  "データ使用量が3 GBの時の携帯電話料金は" + calculateCost(3) + "円です。",
+);

@@ -6,4 +6,4 @@ function calculateTicketPrice(age) {
   }
 }
 
-document.write("入場料金は" + calculateTicketPrice(12) + "円です。");
+document.write("12歳の方の入場料金は" + calculateTicketPrice(12) + "円です。");
