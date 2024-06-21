@@ -1,8 +1,9 @@
 function calculateCost(monthlyDataUsage) {
-  if (monthlyDataUsage < 5.0) {
+  if (monthlyDataUsage < 5) {
     return monthlyDataUsage * 600;
+  } else {
+    return 3000;
   }
-  return 3000;
 }
 
-document.write(calculateCost(3.5));
+document.write("携帯電話料金は" + calculateCost(3) + "円です。");
