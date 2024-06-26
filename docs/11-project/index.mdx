@@ -4,11 +4,12 @@ title: プロジェクト
 
 import omikujiVideo from "./omikuji.mp4";
 import counterVideo from "./counter.mp4";
+import counterResetVideo from "./counter-reset.mp4";
 
 これまで学んできた知識を利用して、はじめての Web アプリケーション作りに挑戦してみましょう。
 題材が思いつかない場合は、下の例を参考にしてみてください。
 
-## カウンター
+## カウンター (基本編)
 
 数を数えることができるアプリです。
 
@@ -48,7 +49,7 @@ document.getElementById(/* ボタンのid */).onclick = plus;
 
 ### 解答例
 
-<Answer title="カウンター">
+<Answer title="カウンター (基本編)">
 
 ```html
 <!doctype html>
@@ -79,6 +80,56 @@ document.getElementById("plus").onclick = plus;
 
 </Answer>
 
+## カウンター (応用編)
+
+### ルール
+
+- 9 まで数えたら、次は 10 ではなく 0 に戻るようにしましょう。
+
+<video src={counterResetVideo} controls />
+
+### ヒント
+
+```js
+let counter = 0;
+
+function plus() {
+  if (/* 何らかの条件 */) {
+    // カウンターを 1 増やす処理
+  } else {
+    // カウンターを 0 に戻す処理
+  }
+  document.getElementById("counter").textContent = counter;
+}
+
+document.getElementById("plus").onclick = plus;
+```
+
+### 解答例
+
+<Answer title="カウンター (応用編)">
+
+```js
+let counter = 0;
+
+function plus() {
+  if (counter < 9) {
+    counter = counter + 1;
+  } else {
+    counter = 0;
+  }
+  document.getElementById("counter").textContent = counter;
+}
+
+document.getElementById("plus").onclick = plus;
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter-reset" />
+
+</Answer>
+
+---
+
 ## おみくじ
 
 今日の運勢をランダムで表示するアプリです。
@@ -93,42 +144,96 @@ document.getElementById("plus").onclick = plus;
 
 ### ヒント
 
-- `Math.random` <Term>関数</Term>は、呼び出すたびに変わる 0 以上 1 未満の乱数 (ランダムな数) を<Term>返し</Term>ます。
+:::info ランダムな数を使う
+
+`Math.random` <Term>関数</Term>は、呼び出すたびに変わる 0 以上 1 未満の乱数 (ランダムな数) を<Term>戻り値</Term>として<Term>返し</Term>ます。
 
 ```javascript
 document.write(Math.random()); // 0.8924949384481442
 ```
 
-- 発生させた乱数を `r` などの名前の<Term>変数</Term>に保存して確率の計算に使いましょう。すると、例えば `r` が 0 以上 0.2 未満になる確率は 20% になりますね。
+発生させた乱数を `r` などの名前の<Term>変数</Term>に保存して、確率の計算に使いましょう。
+
+例えば `r` が 0 以上 0.2 未満になる確率は 20% になりますね。同様に、`r` が 0.2 以上 0.7 未満になる確率は 50%、`r` が 0.7 以上 1 未満になる確率は 30% です。
 
 ```javascript
 let r = Math.random();
 if (r < 0.2) {
-  // 20%の確率で実行される
-} else if (条件式2) {
-  // 50%の確率で実行される
+  // 20% の確率で実行される処理を書く
+} else if (/* 何らかの条件 */) {
+  // 50% の確率で実行される処理を書く
 } else {
-  // 30%の確率で実行される
+  // 30% の確率で実行される処理を書く
 }
 ```
 
-- クリックするためのボタンと、テキストを表示して色を変えるための `p` <Term>要素</Term>の両方を <Term>JavaScript</Term> から取得してみましょう。
+:::
 
 ```html
-<button id="omikuji-button" type="button">おみくじを引く</button>
-<p id="result"></p>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>おみくじ</title>
+  </head>
+  <body>
+    <!-- 結果を表示する部分をここに書く -->
+    <!-- ボタンをここに書く -->
+  </body>
+</html>
 ```
 
-```javascript
-let omikujiButton = document.getElementById("omikuji-button");
-let result = document.getElementById("result");
-
+```js
 function omikuji() {
-  result.textContent = "結果";
+  let r = Math.random();
+  if (r < 0.2) {
+    // 20% の確率で実行される処理を書く
+  } else if (/* 何らかの条件 */) {
+    // 50% の確率で実行される処理を書く
+  } else {
+    // 30% の確率で実行される処理を書く
+  }
 }
-omikujiButton.onclick = omikuji;
+
+document.getElementById(/* おみくじを引くボタンのid */).onclick = omikuji;
 ```
 
 ### 解答例
 
+<Answer title="おみくじ">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>おみくじ</title>
+  </head>
+  <body>
+    <p id="result">ここに結果が表示されます</p>
+    <button id="omikuji-button" type="button">おみくじを引く</button>
+  </body>
+</html>
+```
+
+```js
+function omikuji() {
+  let r = Math.random();
+  if (r < 0.2) {
+    document.getElementById("result").textContent = "大吉";
+    document.getElementById("result").style.color = "red";
+  } else if (r < 0.7) {
+    document.getElementById("result").textContent = "吉";
+    document.getElementById("result").style.color = "black";
+  } else {
+    document.getElementById("result").textContent = "凶";
+    document.getElementById("result").style.color = "blue";
+  }
+}
+
+document.getElementById("omikuji-button").onclick = omikuji;
+```
+
 <ViewSource url={import.meta.url} path="_samples/omikuji" />
+
+</Answer>
