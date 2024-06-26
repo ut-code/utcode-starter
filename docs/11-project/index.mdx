@@ -3,9 +3,81 @@ title: プロジェクト
 ---
 
 import omikujiVideo from "./omikuji.mp4";
+import counterVideo from "./counter.mp4";
 
 これまで学んできた知識を利用して、はじめての Web アプリケーション作りに挑戦してみましょう。
 題材が思いつかない場合は、下の例を参考にしてみてください。
+
+## カウンター
+
+数を数えることができるアプリです。
+
+### ルール
+
+- 数を表示する部分があります。
+- `+1` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
+
+<video src={counterVideo} controls />
+
+### ヒント
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <!-- 数を表示する部分をここに書く -->
+    <!-- ボタンをここに書く -->
+  </body>
+</html>
+```
+
+```js
+let counter = 0;
+
+function plus() {
+  // ボタンがクリックされたときの処理を書く
+}
+
+// ボタンがクリックされたときに plus 関数を呼び出す
+document.getElementById(/* ボタンのid */).onclick = plus;
+```
+
+### 解答例
+
+<Answer title="カウンター">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <p id="counter">0</p>
+    <button id="plus" type="button">+1</button>
+  </body>
+</html>
+```
+
+```js
+let counter = 0;
+
+function plus() {
+  counter = counter + 1;
+  document.getElementById("counter").textContent = counter;
+}
+
+document.getElementById("plus").onclick = plus;
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter" />
+
+</Answer>
 
 ## おみくじ
 
