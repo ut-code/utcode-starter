@@ -50,11 +50,54 @@ document.getElementById("greeting").textContent = "こんばんは、世界！";
 - `document.getElementById("greeting")` の部分で、`id` 属性が `greeting` である要素を取得しています。
 - `.textContent` と書くことで要素の中身のテキストにアクセスでき、テキストの取得や変更が行えます。ここでは `こんにちは、世界！` という文字列に変更しています。
 
+### 確認問題
+
+次のような HTML で作成されたウェブサイトがあります。
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>自己紹介</title>
+  </head>
+  <body>
+    <p id="introduction">こんにちは。私は田中です。</p>
+  </body>
+</html>
+```
+
+JavaScript を使って、`こんにちは。私は田中です。` という部分を `こんにちは。私は鈴木です。` に書き換えてください。
+
+<Answer title="自己紹介の書き換え">
+
+```js
+document.getElementById("introduction").textContent =
+  "こんにちは。私は鈴木です。";
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-introduction" />
+
+</Answer>
+
 ## JavaScript でスタイルを操作する
 
 CSS の章で扱った「色」や「文字サイズ」などのスタイルも JavaScript から操作することができます。
 
 下記のプログラムを実行してみましょう。
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <p id="greeting">こんにちは、世界！</p>
+  </body>
+</html>
+```
 
 ```js
 document.getElementById("greeting").style.backgroundColor = "red";
@@ -85,12 +128,34 @@ JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降�
 | 文字色     | `color`            | `color`           |
 | ……         | ……                 | ……                |
 
-同じ要領で他のスタイルも操作してみましょう。
-例えば下の例では、文字サイズを変更しています。
+### 確認問題
+
+次のような HTML で作成されたウェブサイトがあります。
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <p id="greeting">こんにちは、世界！</p>
+  </body>
+</html>
+```
+
+JavaScript を使って、`こんにちは、世界！` の文字サイズを `40px` に変更してください。
+
+<Answer title="文字サイズの変更">
 
 ```js
-document.getElementById("greeting").style.fontSize = "100px";
+document.getElementById("greeting").style.fontSize = "40px";
 ```
+
+<ViewSource url={import.meta.url} path="_samples/change-font-size" />
+
+</Answer>
 
 :::tip
 
@@ -105,28 +170,43 @@ greetingElement.style.backgroundColor = "red";
 
 :::
 
-## 課題
+## 演習問題
 
-下のような HTML で作成された買い物リストがあります。
+次のような HTML で作成された買い物リストがあります。
 
 ```html
-<ul>
-  <li id="item1">リンゴ</li>
-  <li id="item2">ミカン</li>
-  <li id="item3">ブドウ</li>
-</ul>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>買い物リスト</title>
+  </head>
+  <body>
+    <ul>
+      <li id="item1">リンゴ</li>
+      <li id="item2">レモン</li>
+      <li id="item3">ブドウ</li>
+    </ul>
+  </body>
+</html>
 ```
 
-![買い物リスト](./shopping-list.jpg)
+![買い物リスト](./shopping-list.png)
 
-JavaScript を使ってこの買い物リストを書き換えて、「リンゴ」「レモン」「ブドウ」と表示されるようにしてみましょう。
+- この買い物リストを書き換えて、「リンゴ」「ミカン」「ブドウ」と表示されるようにしてみましょう。
+
+- 「リンゴ」「ミカン」「ブドウ」の項目の色をそれぞれ `red`、`orange`、`purple` に変更しましょう。
+
+![変更後の買い物リスト](./changed-shopping-list.png)
 
 <Answer title="買い物リストの書き換え">
 
 ```js
-let item = document.getElementById("item2");
+document.getElementById("item2").textContent = "ミカン";
 
-item.textContent = "レモン";
+document.getElementById("item1").style.color = "red";
+document.getElementById("item2").style.color = "orange";
+document.getElementById("item3").style.color = "purple";
 ```
 
 <ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />

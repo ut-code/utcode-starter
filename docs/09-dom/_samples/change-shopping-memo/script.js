@@ -1,3 +1,5 @@
-let item = document.getElementById("item2");
+document.getElementById("item2").textContent = "ミカン";
 
-item.textContent = "レモン";
+document.getElementById("item1").style.color = "red";
+document.getElementById("item2").style.color = "orange";
+document.getElementById("item3").style.color = "purple";
