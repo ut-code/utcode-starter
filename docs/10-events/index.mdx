@@ -3,7 +3,7 @@ title: イベント
 ---
 
 import handleClickVideo from "./handle-click.mp4";
-import projectMovieForDom from "./project-movie-for-dom.mp4";
+import orderButtonVideo from "./order-button.mp4";
 
 ## クリックに応じて JavaScript を実行する
 
@@ -54,61 +54,60 @@ document.getElementById("greet-button").onclick = clicked;
 
 :::
 
-## 課題
+## 確認問題
 
-押すと大きく赤文字が表示される「びっくり箱」のようなボタンを作ってみましょう。
+通販サイトのようなページがあります。最初は、`下のボタンから注文できます。` というメッセージが表示されています。
 
-<video src={projectMovieForDom} muted controls />
-
-:::tip[文字列の表示]
-
-`document.write()` を使うと、画面上にあったボタンが消えてしまいます。また、文字色やサイズを変えることも困難です。
-
-`document.write()` の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
-
-:::
-
-:::tip[`こんにちは、世界！` を表示する場所]
-
-`button` 要素の `textContent` を書き換えるとボタンの中に `こんにちは、世界！` を表示してしまいます。
-
-ボタンとは別に、あらかじめ `こんにちは、世界！` を表示するための場所を用意しておく必要があります。
-例えば空の `p` 要素を置いておけばよいでしょう。
-
-```html
-<p id="greeting"></p>
-```
-
-:::
-
-<Answer title="びっくり箱">
 ```html
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Title</title>
+    <title>通販サイト</title>
   </head>
   <body>
-    <p id="greeting"></p>
-    <button id="button" type="button">ボタン</button>
+    <p id="message">下のボタンから注文できます。</p>
+    <button id="order-button" type="button">注文する</button>
+  </body>
+</html>
+```
+
+`注文する` ボタンを押すとメッセージが `注文済です。` に変わるようにしてください。
+
+```js
+function order() {
+  // ボタンがクリックされたときの処理を書く
+}
+
+document.getElementById(/* ボタンのid */).onclick = order;
+```
+
+<video src={orderButtonVideo} muted controls />
+
+<Answer title="通販サイト">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>通販サイト</title>
+  </head>
+  <body>
+    <p id="message">下のボタンから注文できます。</p>
+    <button id="order-button" type="button">注文する</button>
   </body>
 </html>
 ```
 
 ```js
-let greetingElement = document.getElementById("greeting");
-let buttonElement = document.getElementById("button");
-
-function clicked() {
-  greetingElement.textContent = "こんにちは、世界！";
-  greetingElement.style.color = "red";
-  greetingElement.style.fontSize = "40px";
+function order() {
+  document.getElementById("message").textContent = "注文済です。";
 }
 
-buttonElement.onclick = clicked;
+document.getElementById("order-button").onclick = order;
 ```
 
-<ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
+<ViewSource url={import.meta.url} path="_samples/order-button/" />
 
 </Answer>
