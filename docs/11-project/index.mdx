@@ -15,8 +15,7 @@ import counterMinusVideo from "./counter-minus.mp4";
 
 ### ステップ 1: シンプルなカウンター
 
-- 数を表示する部分があります。
-- `+` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
+数を表示する部分があります。`+` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
 
 <video src={counterVideo} controls />
 
@@ -78,7 +77,7 @@ document.getElementById("plus-button").onclick = plusOne;
 
 ### ステップ 2: マイナスボタンを追加
 
-- `-` と書かれたボタンを新たに作成し、数を 1 つずつ減らせるようにしましょう。
+`-` と書かれたボタンを新たに作成し、数を 1 つずつ減らせるようにしましょう。
 
 <video src={counterMinusVideo} controls />
 
@@ -117,6 +116,68 @@ document.getElementById("minus-button").onclick = minusOne;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/counter-minus" />
+
+</Answer>
+
+### ステップ 3: スタイルを追加
+
+CSS を使って、作成したカウンターの見た目を整えましょう。
+
+これまでに扱った文字色や背景色、文字サイズだけでなく、「テキストを中央揃えにする」「角を丸くする」などの方法も調べて使ってみましょう。
+
+![見た目を整えたカウンター](./counter-minus-styled.jpg)
+
+```css
+#counter-value {
+  width: 160px; /* 幅の指定 */
+  font-size: 48px;
+  /* ここで、テキストが中央揃えになるよう指定する */
+}
+
+#minus-button {
+  width: 80px;
+  border: none; /* 枠線を表示しないよう指定 */
+  font-size: 24px;
+  /* ここで、角が丸くなるよう指定する */
+}
+
+#plus-button {
+  width: 80px;
+  border: none;
+  font-size: 24px;
+  /* ここで、角が丸くなるよう指定する */
+}
+```
+
+<Answer title="カウンター (ステップ 3)">
+
+```css
+#counter-value {
+  width: 160px;
+  font-size: 48px;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+}
+
+#minus-button {
+  width: 80px;
+  border: none;
+  font-size: 24px;
+  border-radius: 20px; /* 角が丸くなるよう指定 */
+  background-color: royalblue;
+  color: white;
+}
+
+#plus-button {
+  width: 80px;
+  border: none;
+  font-size: 24px;
+  border-radius: 20px; /* 角が丸くなるよう指定 */
+  color: white;
+  background-color: orangered;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter-minus-styled" />
 
 </Answer>
 

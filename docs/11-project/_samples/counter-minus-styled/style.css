@@ -1,0 +1,23 @@
+#counter-value {
+  width: 160px;
+  font-size: 48px;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+}
+
+#minus-button {
+  width: 80px;
+  border: none;
+  font-size: 24px;
+  border-radius: 20px; /* 角が丸くなるよう指定 */
+  background-color: royalblue;
+  color: white;
+}
+
+#plus-button {
+  width: 80px;
+  border: none;
+  font-size: 24px;
+  border-radius: 20px;
+  color: white;
+  background-color: orangered;
+}
