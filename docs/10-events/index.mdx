@@ -54,7 +54,7 @@ document.getElementById("greet-button").onclick = greet;
 
 :::
 
-## 確認問題
+## 演習問題
 
 通販サイトのようなページがあります。最初は、`下のボタンから注文できます。` というメッセージが表示されています。
 
@@ -79,7 +79,7 @@ function order() {
   // ボタンがクリックされたときの処理を書く
 }
 
-document.getElementById(/* ボタンのid */).onclick = order;
+document.getElementById(/* ボタンのid名 */).onclick = order;
 ```
 
 <video src={orderButtonVideo} muted controls />
@@ -94,7 +94,7 @@ document.getElementById(/* ボタンのid */).onclick = order;
     <title>通販サイト</title>
   </head>
   <body>
-    <p id="message">下のボタンから注文できます。</p>
+    <p id="order-message">下のボタンから注文できます。</p>
     <button id="order-button" type="button">注文する</button>
   </body>
 </html>
@@ -102,7 +102,7 @@ document.getElementById(/* ボタンのid */).onclick = order;
 
 ```js
 function order() {
-  document.getElementById("message").textContent = "注文済です。";
+  document.getElementById("order-message").textContent = "注文済です。";
 }
 
 document.getElementById("order-button").onclick = order;
