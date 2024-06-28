@@ -145,15 +145,17 @@ JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降�
 </html>
 ```
 
-JavaScript を使って、`こんにちは、世界！` の文字サイズを `40px` に変更してください。
+JavaScript を使って、`こんにちは、世界！` の文字色を `green` に、背景色を `lightgray` に、文字サイズを `40px` に変更してください。
 
-<Answer title="文字サイズの変更">
+<Answer title="スタイルの変更">
 
 ```js
+document.getElementById("greeting").style.color = "green";
+document.getElementById("greeting").style.backgroundColor = "lightgray";
 document.getElementById("greeting").style.fontSize = "40px";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-font-size" />
+<ViewSource url={import.meta.url} path="_samples/change-style" />
 
 </Answer>
 
@@ -164,8 +166,9 @@ document.getElementById("greeting").style.fontSize = "40px";
 ```js
 let greetingElement = document.getElementById("greeting");
 
-greetingElement.textContent = "こんばんは、世界！";
-greetingElement.style.backgroundColor = "red";
+greetingElement.style.color = "green";
+greetingElement.style.backgroundColor = "lightgray";
+greetingElement.style.fontSize = "40px";
 ```
 
 :::
