@@ -175,9 +175,7 @@ greetingElement.style.fontSize = "40px";
 
 ## 演習問題
 
-次のようなウェブサイトがあります。
-
-![気温に応じて異なるメッセージを表示するウェブサイト](./temperature-message.jpg)
+次のような HTML で作成されたウェブサイトがあります。
 
 ```html
 <!doctype html>
@@ -187,7 +185,7 @@ greetingElement.style.fontSize = "40px";
     <title>タイトル</title>
   </head>
   <body>
-    <p id="temperature-message">ここに気温に応じてメッセージが表示されます</p>
+    <p id="temperature-message">ここに気温に応じてメッセージが表示されます。</p>
   </body>
 </html>
 ```
@@ -195,20 +193,22 @@ greetingElement.style.fontSize = "40px";
 気温を表す変数 `temperature` の値に応じて、異なるメッセージが表示されるようにしてください。
 
 - 気温が 15 度未満の場合は `今日は寒いです。` と表示し、文字色を青色にします。
-- 気温が 30 度を超える場合は `今日は暑いです。` と表示し、文字色を赤色にします。
+- 気温が 30 度以上の場合は `今日は暑いです。` と表示し、文字色を赤色にします。
 - それ以外の場合は `今日は快適です。` と表示します。
 
 ```js
 let temperature = 35;
 
 if (temperature < 15) {
-  // 気温が 15 度未満のときの処理を書く
-} else if (temperature > 30) {
-  // 気温が 30 度を超えるときの処理を書く
+  // 気温が15度未満のときの処理を書く
+} else if (temperature >= 30) {
+  // 気温が30度以上のときの処理を書く
 } else {
   // それ以外のときの処理を書く
 }
 ```
+
+![気温に応じて異なるメッセージを表示するウェブサイト](./temperature-message.jpg)
 
 <Answer title="気温に応じて異なるメッセージを表示する">
 
@@ -219,7 +219,7 @@ if (temperature < 15) {
   document.getElementById("temperature-message").textContent =
     "今日は寒いです。";
   document.getElementById("temperature-message").style.color = "blue";
-} else if (temperature > 30) {
+} else if (temperature >= 30) {
   document.getElementById("temperature-message").textContent =
     "今日は暑いです。";
   document.getElementById("temperature-message").style.color = "red";
