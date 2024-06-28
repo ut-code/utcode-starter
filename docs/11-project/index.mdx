@@ -4,23 +4,21 @@ title: プロジェクト
 
 import omikujiVideo from "./omikuji.mp4";
 import counterVideo from "./counter.mp4";
-import counterResetVideo from "./counter-reset.mp4";
+import counterMinusVideo from "./counter-minus.mp4";
 
 これまで学んできた知識を利用して、はじめての Web アプリケーション作りに挑戦してみましょう。
 題材が思いつかない場合は、下の例を参考にしてみてください。
 
-## カウンター (基本編)
+## カウンター
 
 数を数えることができるアプリです。
 
-### ルール
+### ステップ 1: シンプルなカウンター
 
 - 数を表示する部分があります。
 - `+` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
 
 <video src={counterVideo} controls />
-
-### ヒント
 
 ```html
 <!doctype html>
@@ -47,9 +45,7 @@ function plusOne() {
 document.getElementById(/* ボタンのid名 */).onclick = plusOne;
 ```
 
-### 解答例
-
-<Answer title="カウンター (基本編)">
+<Answer title="カウンター (ステップ 1)">
 
 ```html
 <!doctype html>
@@ -80,51 +76,47 @@ document.getElementById("plus-button").onclick = plusOne;
 
 </Answer>
 
-## カウンター (応用編)
+### ステップ 2: マイナスボタンを追加
 
-### ルール
+- `-` と書かれたボタンを新たに作成し、数を 1 つずつ減らせるようにしましょう。
 
-- 9 まで数えたら、次は 10 ではなく 0 に戻るようにしましょう。
+<video src={counterMinusVideo} controls />
 
-<video src={counterResetVideo} controls />
+<Answer title="カウンター (ステップ 2)">
 
-### ヒント
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <p id="counter-value">0</p>
+    <button id="minus-button" type="button">-</button>
+    <button id="plus-button" type="button">+</button>
+  </body>
+</html>
+```
 
 ```js
 let counter = 0;
 
-function plus() {
-  if (/* 何らかの条件 */) {
-    // カウンターを 1 増やす処理
-  } else {
-    // カウンターを 0 に戻す処理
-  }
-  document.getElementById("counter").textContent = counter;
+function plusOne() {
+  counter = counter + 1;
+  document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus").onclick = plus;
-```
-
-### 解答例
-
-<Answer title="カウンター (応用編)">
-
-```js
-let counter = 0;
-
-function plus() {
-  if (counter < 9) {
-    counter = counter + 1;
-  } else {
-    counter = 0;
-  }
-  document.getElementById("counter").textContent = counter;
+function minusOne() {
+  counter = counter - 1;
+  document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus").onclick = plus;
+document.getElementById("plus-button").onclick = plusOne;
+document.getElementById("minus-button").onclick = minusOne;
 ```
 
-<ViewSource url={import.meta.url} path="_samples/counter-reset" />
+<ViewSource url={import.meta.url} path="_samples/counter-minus" />
 
 </Answer>
 
