@@ -59,24 +59,24 @@ document.getElementById("greeting").textContent = "こんばんは、世界！";
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>自己紹介</title>
+    <title>ログインメッセージ</title>
   </head>
   <body>
-    <p id="introduction">こんにちは。私は田中です。</p>
+    <p id="welcome-message">ようこそ！</p>
   </body>
 </html>
 ```
 
-JavaScript を使って、`こんにちは。私は田中です。` という部分を `こんにちは。私は鈴木です。` に書き換えてください。
+JavaScript を使って、`ようこそ！` という部分を `こんにちは、田中さん！` に書き換えてください。
 
-<Answer title="自己紹介の書き換え">
+<Answer title="ウェルカムメッセージの書き換え">
 
 ```js
-document.getElementById("introduction").textContent =
-  "こんにちは。私は鈴木です。";
+document.getElementById("welcome-message").textContent =
+  "こんにちは、田中さん！";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-introduction" />
+<ViewSource url={import.meta.url} path="_samples/change-welcome-message" />
 
 </Answer>
 
