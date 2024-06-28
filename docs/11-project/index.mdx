@@ -187,15 +187,13 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
 
 今日の運勢をランダムで表示するアプリです。
 
-### ルール
+### ステップ 1: おみくじの機能を作成
 
 - 20%の確率で `大吉` と表示し、文字色を赤色にします
 - 50%の確率で `吉` と表示し、文字色を黒色にします
 - 30%の確率で `凶` と表示し、文字色を青色にします
 
 <video src={omikujiVideo} controls />
-
-### ヒント
 
 :::info ランダムな数を使う
 
@@ -212,11 +210,11 @@ document.write(Math.random()); // 0.8924949384481442
 ```javascript
 let r = Math.random();
 if (r < 0.2) {
-  // 20% の確率で実行される処理を書く
+  // 20%の確率で実行される処理を書く
 } else if (/* 何らかの条件 */) {
-  // 50% の確率で実行される処理を書く
+  // 50%の確率で実行される処理を書く
 } else {
-  // 30% の確率で実行される処理を書く
+  // 30%の確率で実行される処理を書く
 }
 ```
 
@@ -240,20 +238,18 @@ if (r < 0.2) {
 function omikuji() {
   let r = Math.random();
   if (r < 0.2) {
-    // 20% の確率で実行される処理を書く
+    // 20%の確率で実行される処理を書く
   } else if (/* 何らかの条件 */) {
-    // 50% の確率で実行される処理を書く
+    // 50%の確率で実行される処理を書く
   } else {
-    // 30% の確率で実行される処理を書く
+    // 30%の確率で実行される処理を書く
   }
 }
 
-document.getElementById(/* おみくじを引くボタンのid */).onclick = omikuji;
+document.getElementById(/* おみくじを引くボタンのid名 */).onclick = omikuji;
 ```
 
-### 解答例
-
-<Answer title="おみくじ">
+<Answer title="おみくじ (ステップ 1)">
 
 ```html
 <!doctype html>
@@ -263,7 +259,7 @@ document.getElementById(/* おみくじを引くボタンのid */).onclick = omi
     <title>おみくじ</title>
   </head>
   <body>
-    <p id="result">ここに結果が表示されます</p>
+    <p id="result">結果</p>
     <button id="omikuji-button" type="button">おみくじを引く</button>
   </body>
 </html>
