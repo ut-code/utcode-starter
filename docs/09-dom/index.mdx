@@ -175,43 +175,60 @@ greetingElement.style.fontSize = "40px";
 
 ## 演習問題
 
-次のような HTML で作成された買い物リストがあります。
+次のようなウェブサイトがあります。
+
+![気温に応じて異なるメッセージを表示するウェブサイト](./temperature-message.jpg)
 
 ```html
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>買い物リスト</title>
+    <title>タイトル</title>
   </head>
   <body>
-    <ul>
-      <li id="item1">リンゴ</li>
-      <li id="item2">レモン</li>
-      <li id="item3">ブドウ</li>
-    </ul>
+    <p id="temperature-message">ここに気温に応じてメッセージが表示されます</p>
   </body>
 </html>
 ```
 
-![買い物リスト](./shopping-list.png)
+気温を表す変数 `temperature` の値に応じて、異なるメッセージが表示されるようにしてください。
 
-- この買い物リストを書き換えて、「リンゴ」「ミカン」「ブドウ」と表示されるようにしてみましょう。
-
-- 「リンゴ」「ミカン」「ブドウ」の項目の色をそれぞれ `red`、`orange`、`purple` に変更しましょう。
-
-![変更後の買い物リスト](./changed-shopping-list.png)
-
-<Answer title="買い物リストの書き換え">
+- 気温が 15 度未満の場合は `今日は寒いです。` と表示し、文字色を青色にします。
+- 気温が 30 度を超える場合は `今日は暑いです。` と表示し、文字色を赤色にします。
+- それ以外の場合は `今日は快適です。` と表示します。
 
 ```js
-document.getElementById("item2").textContent = "ミカン";
+let temperature = 35;
 
-document.getElementById("item1").style.color = "red";
-document.getElementById("item2").style.color = "orange";
-document.getElementById("item3").style.color = "purple";
+if (temperature < 15) {
+  // 気温が 15 度未満のときの処理を書く
+} else if (temperature > 30) {
+  // 気温が 30 度を超えるときの処理を書く
+} else {
+  // それ以外のときの処理を書く
+}
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
+<Answer title="気温に応じて異なるメッセージを表示する">
+
+```js
+let temperature = 35;
+
+if (temperature < 15) {
+  document.getElementById("temperature-message").textContent =
+    "今日は寒いです。";
+  document.getElementById("temperature-message").style.color = "blue";
+} else if (temperature > 30) {
+  document.getElementById("temperature-message").textContent =
+    "今日は暑いです。";
+  document.getElementById("temperature-message").style.color = "red";
+} else {
+  document.getElementById("temperature-message").textContent =
+    "今日は快適です。";
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/temperature-message" />
 
 </Answer>
