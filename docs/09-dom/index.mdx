@@ -100,18 +100,18 @@ CSS の章で扱った「色」や「文字サイズ」などのスタイルも 
 ```
 
 ```js
-document.getElementById("greeting").style.backgroundColor = "red";
+document.getElementById("greeting").style.backgroundColor = "yellow";
 ```
 
 <ViewSource url={import.meta.url} path="_samples/css" />
 
-すると、背景色が赤色に変わりました。
+すると、背景色が黄色に変わりました。
 
-![背景色が赤色に変わった画面](./change-style.jpg)
+![背景色が黄色に変わった画面](./change-style.jpg)
 
 - `document.getElementById("greeting")` で `id` 属性が `greeting` の要素を取得します。
 
-- `.style.backgroundColor` と書くことで要素の背景色にアクセスでき、背景色の取得や変更が行えます。ここでは `"red"` (赤色) に変更しています。
+- `.style.backgroundColor` と書くことで要素の背景色にアクセスでき、背景色の取得や変更が行えます。ここでは `"yellow"` (黄色) に変更しています。
 
 この `backgroundColor` というフレーズに聞き覚えがないでしょうか。
 そうです、CSS の章で背景色を変更する際に、`background-color` という<Term type="cssProperty">プロパティ</Term>を使いましたね。

@@ -1,1 +1,1 @@
-document.getElementById("greeting").style.backgroundColor = "red";
+document.getElementById("greeting").style.backgroundColor = "yellow";
