@@ -3,6 +3,7 @@ title: プロジェクト
 ---
 
 import omikujiVideo from "./omikuji.mp4";
+import omikujiStyledVideo from "./omikuji-styled.mp4";
 import counterVideo from "./counter.mp4";
 import counterMinusVideo from "./counter-minus.mp4";
 
@@ -139,6 +140,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   border: none; /* 枠線を表示しないよう指定 */
   font-size: 24px;
   /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
 }
 
 #plus-button {
@@ -146,6 +148,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   border: none;
   font-size: 24px;
   /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
 }
 ```
 
@@ -284,5 +287,58 @@ document.getElementById("omikuji-button").onclick = omikuji;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/omikuji" />
+
+</Answer>
+
+### ステップ 2: スタイルを追加
+
+CSS を使って、作成したおみくじの見た目を整えましょう。
+
+これまでに扱ってきたプロパティに加えて、「テキストを縦書きにする」などの方法も調べて使ってみましょう。
+
+<video src={omikujiStyledVideo} controls />
+
+```css
+#result {
+  width: 60px;
+  height: 120px; /* 高さの指定 */
+  font-size: 48px;
+  font-family: serif; /* フォントが明朝体になるよう指定 */
+  /* ここで、テキストが中央揃えになるよう指定する */
+  /* ここで、テキストが縦書きになるよう指定する */
+}
+
+#omikuji-button {
+  width: 160px;
+  height: 36px;
+  border: none;
+  /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
+}
+```
+
+<Answer title="おみくじ (ステップ 2)">
+
+```css
+#result {
+  width: 60px;
+  height: 120px;
+  font-size: 48px;
+  font-family: serif;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+  writing-mode: vertical-rl; /* テキストが縦書きになるよう指定 */
+}
+
+#omikuji-button {
+  width: 160px;
+  height: 36px;
+  border: none;
+  border-radius: 10px; /* 角が丸くなるよう指定 */
+  color: white;
+  background-color: gray;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/omikuji-styled" />
 
 </Answer>

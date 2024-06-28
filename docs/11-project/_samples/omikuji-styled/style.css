@@ -1,0 +1,17 @@
+#result {
+  width: 60px;
+  height: 120px;
+  font-size: 48px;
+  font-family: serif;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+  writing-mode: vertical-rl; /* テキストが縦書きになるよう指定 */
+}
+
+#omikuji-button {
+  width: 160px;
+  height: 36px;
+  border: none;
+  border-radius: 10px; /* 角が丸くなるよう指定 */
+  color: white;
+  background-color: gray;
+}
