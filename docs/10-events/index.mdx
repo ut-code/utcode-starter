@@ -3,7 +3,7 @@ title: イベント
 ---
 
 import handleClickVideo from "./handle-click.mp4";
-import projectMovieForDom from "./project-movie-for-dom.mp4";
+import orderButtonVideo from "./order-button.mp4";
 
 ## クリックに応じて JavaScript を実行する
 
@@ -13,8 +13,10 @@ import projectMovieForDom from "./project-movie-for-dom.mp4";
 
 例として、ボタンがクリックされたときに `こんにちは、世界！` と表示するようなプログラムを作成してみましょう。
 
+<video src={handleClickVideo} muted controls />
+
 まず、クリックするためのボタンを用意し、`id` 属性をつけておきます。
-ボタンは `<button>` タグを使って作成します。
+ボタンは `button` 要素を使って表します。
 
 ```html
 <button id="greet-button" type="button">クリック</button>
@@ -23,30 +25,28 @@ import projectMovieForDom from "./project-movie-for-dom.mp4";
 次に、ボタンがクリックされたときに実行される JavaScript のプログラムを書いていきます。
 
 ```javascript
-function clicked() {
+function greet() {
   document.write("こんにちは、世界！");
 }
 
-document.getElementById("greet-button").onclick = clicked;
+document.getElementById("greet-button").onclick = greet;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/handle-click/" />
 
-- `function clicked() { ... }` の部分では、ボタンがクリックされたときに実行される関数を定義しています。
+- `function greet() { ... }` の部分では、ボタンがクリックされたときに実行される関数を定義しています。
 
 - `document.getElementById("greet-button")` の部分では、先ほどの DOM のセクションと同様に、`id` 属性が `greet-button` である HTML 要素を取得しています。
 
-- `.onclick` と書くことで、要素がクリックされたときに実行される関数にアクセスできます。ここでは、最初の部分で定義した `clicked` 関数を指定しています。
+- `.onclick` と書くことで、要素がクリックされたときに実行される関数にアクセスできます。ここでは、最初の部分で定義した `greet` 関数を指定しています。
 
 :::warning[関数を指定する際にかっこは使用しない]
 
-最終行で `clicked()` ではなく `clicked` となっていることに注意してください。
+最終行で `greet()` ではなく `greet` となっていることに注意してください。
 
-もし `clicked()` と書くとこの行が実行されるときに関数が呼び出されてしまいます。ここではあくまで関数を指定したいだけなので、`clicked` と書いています。
+もし `greet()` と書くとこの行が実行されるときに関数が呼び出されてしまいます。ここではあくまで関数を指定したいだけなので、`greet` と書いています。
 
 :::
-
-<video src={handleClickVideo} muted controls />
 
 :::info[イベント]
 
@@ -54,61 +54,60 @@ document.getElementById("greet-button").onclick = clicked;
 
 :::
 
-## 課題
+## 演習問題
 
-押すと大きく赤文字が表示される「びっくり箱」のようなボタンを作ってみましょう。
+次のような通販サイトがあります。最初は、`下のボタンから注文できます。` というメッセージが表示されています。
 
-<video src={projectMovieForDom} muted controls />
-
-:::tip[文字列の表示]
-
-`document.write()` を使うと、画面上にあったボタンが消えてしまいます。また、文字色やサイズを変えることも困難です。
-
-`document.write()` の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
-
-:::
-
-:::tip[`こんにちは、世界！` を表示する場所]
-
-`button` 要素の `textContent` を書き換えるとボタンの中に `こんにちは、世界！` を表示してしまいます。
-
-ボタンとは別に、あらかじめ `こんにちは、世界！` を表示するための場所を用意しておく必要があります。
-例えば空の `p` 要素を置いておけばよいでしょう。
-
-```html
-<p id="greeting"></p>
-```
-
-:::
-
-<Answer title="びっくり箱">
 ```html
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Title</title>
+    <title>通販サイト</title>
   </head>
   <body>
-    <p id="greeting"></p>
-    <button id="button" type="button">ボタン</button>
+    <p id="order-message">下のボタンから注文できます。</p>
+    <button id="order-button" type="button">注文する</button>
+  </body>
+</html>
+```
+
+`注文する` ボタンを押すとメッセージが `注文済です。` に変わるようにしてください。
+
+```js
+function order() {
+  // ボタンがクリックされたときの処理を書く
+}
+
+document.getElementById(/* ボタンのid名 */).onclick = order;
+```
+
+<video src={orderButtonVideo} muted controls />
+
+<Answer title="通販サイト">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>通販サイト</title>
+  </head>
+  <body>
+    <p id="order-message">下のボタンから注文できます。</p>
+    <button id="order-button" type="button">注文する</button>
   </body>
 </html>
 ```
 
 ```js
-let greetingElement = document.getElementById("greeting");
-let buttonElement = document.getElementById("button");
-
-function clicked() {
-  greetingElement.textContent = "こんにちは、世界！";
-  greetingElement.style.color = "red";
-  greetingElement.style.fontSize = "40px";
+function order() {
+  document.getElementById("order-message").textContent = "注文済です。";
 }
 
-buttonElement.onclick = clicked;
+document.getElementById("order-button").onclick = order;
 ```
 
-<ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
+<ViewSource url={import.meta.url} path="_samples/order-button/" />
 
 </Answer>
