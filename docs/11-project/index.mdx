@@ -16,7 +16,7 @@ import counterResetVideo from "./counter-reset.mp4";
 ### ルール
 
 - 数を表示する部分があります。
-- `+1` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
+- `+` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
 
 <video src={counterVideo} controls />
 
@@ -39,12 +39,12 @@ import counterResetVideo from "./counter-reset.mp4";
 ```js
 let counter = 0;
 
-function plus() {
+function plusOne() {
   // ボタンがクリックされたときの処理を書く
 }
 
-// ボタンがクリックされたときに plus 関数を呼び出す
-document.getElementById(/* ボタンのid */).onclick = plus;
+// ボタンがクリックされたときに plusOne 関数を呼び出す
+document.getElementById(/* ボタンのid名 */).onclick = plusOne;
 ```
 
 ### 解答例
@@ -59,8 +59,8 @@ document.getElementById(/* ボタンのid */).onclick = plus;
     <title>カウンター</title>
   </head>
   <body>
-    <p id="counter">0</p>
-    <button id="plus" type="button">+1</button>
+    <p id="counter-value">0</p>
+    <button id="plus-button" type="button">+</button>
   </body>
 </html>
 ```
@@ -68,12 +68,12 @@ document.getElementById(/* ボタンのid */).onclick = plus;
 ```js
 let counter = 0;
 
-function plus() {
+function plusOne() {
   counter = counter + 1;
-  document.getElementById("counter").textContent = counter;
+  document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus").onclick = plus;
+document.getElementById("plus-button").onclick = plusOne;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/counter" />

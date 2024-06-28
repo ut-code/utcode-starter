@@ -1,8 +1,8 @@
 let counter = 0;
 
-function plus() {
+function plusOne() {
   counter = counter + 1;
-  document.getElementById("counter").textContent = counter;
+  document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus").onclick = plus;
+document.getElementById("plus-button").onclick = plusOne;
