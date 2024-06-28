@@ -13,6 +13,8 @@ import orderButtonVideo from "./order-button.mp4";
 
 例として、ボタンがクリックされたときに `こんにちは、世界！` と表示するようなプログラムを作成してみましょう。
 
+<video src={handleClickVideo} muted controls />
+
 まず、クリックするためのボタンを用意し、`id` 属性をつけておきます。
 ボタンは `button` 要素を使って表します。
 
@@ -23,30 +25,28 @@ import orderButtonVideo from "./order-button.mp4";
 次に、ボタンがクリックされたときに実行される JavaScript のプログラムを書いていきます。
 
 ```javascript
-function clicked() {
+function greet() {
   document.write("こんにちは、世界！");
 }
 
-document.getElementById("greet-button").onclick = clicked;
+document.getElementById("greet-button").onclick = greet;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/handle-click/" />
 
-- `function clicked() { ... }` の部分では、ボタンがクリックされたときに実行される関数を定義しています。
+- `function greet() { ... }` の部分では、ボタンがクリックされたときに実行される関数を定義しています。
 
 - `document.getElementById("greet-button")` の部分では、先ほどの DOM のセクションと同様に、`id` 属性が `greet-button` である HTML 要素を取得しています。
 
-- `.onclick` と書くことで、要素がクリックされたときに実行される関数にアクセスできます。ここでは、最初の部分で定義した `clicked` 関数を指定しています。
+- `.onclick` と書くことで、要素がクリックされたときに実行される関数にアクセスできます。ここでは、最初の部分で定義した `greet` 関数を指定しています。
 
 :::warning[関数を指定する際にかっこは使用しない]
 
-最終行で `clicked()` ではなく `clicked` となっていることに注意してください。
+最終行で `greet()` ではなく `greet` となっていることに注意してください。
 
-もし `clicked()` と書くとこの行が実行されるときに関数が呼び出されてしまいます。ここではあくまで関数を指定したいだけなので、`clicked` と書いています。
+もし `greet()` と書くとこの行が実行されるときに関数が呼び出されてしまいます。ここではあくまで関数を指定したいだけなので、`greet` と書いています。
 
 :::
-
-<video src={handleClickVideo} muted controls />
 
 :::info[イベント]
 
