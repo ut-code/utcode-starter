@@ -37,12 +37,12 @@ import counterMinusVideo from "./counter-minus.mp4";
 ```js
 let counter = 0;
 
-function plusOne() {
+function countUp() {
   // ボタンがクリックされたときの処理を書く
 }
 
-// ボタンがクリックされたときにplusOne関数を呼び出す
-document.getElementById(/* ボタンのid名 */).onclick = plusOne;
+// ボタンがクリックされたときにcountUp関数を呼び出す
+document.getElementById(/* ボタンのid名 */).onclick = countUp;
 ```
 
 <Answer title="カウンター (ステップ 1)">
@@ -56,7 +56,7 @@ document.getElementById(/* ボタンのid名 */).onclick = plusOne;
   </head>
   <body>
     <p id="counter-value">0</p>
-    <button id="plus-button" type="button">+</button>
+    <button id="count-up-button" type="button">+</button>
   </body>
 </html>
 ```
@@ -64,12 +64,12 @@ document.getElementById(/* ボタンのid名 */).onclick = plusOne;
 ```js
 let counter = 0;
 
-function plusOne() {
+function countUp() {
   counter = counter + 1;
   document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus-button").onclick = plusOne;
+document.getElementById("count-up-button").onclick = countUp;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/counter" />
@@ -93,8 +93,8 @@ document.getElementById("plus-button").onclick = plusOne;
   </head>
   <body>
     <p id="counter-value">0</p>
-    <button id="minus-button" type="button">-</button>
-    <button id="plus-button" type="button">+</button>
+    <button id="count-down-button" type="button">-</button>
+    <button id="count-up-button" type="button">+</button>
   </body>
 </html>
 ```
@@ -102,18 +102,18 @@ document.getElementById("plus-button").onclick = plusOne;
 ```js
 let counter = 0;
 
-function plusOne() {
+function countUp() {
   counter = counter + 1;
   document.getElementById("counter-value").textContent = counter;
 }
 
-function minusOne() {
+function countDown() {
   counter = counter - 1;
   document.getElementById("counter-value").textContent = counter;
 }
 
-document.getElementById("plus-button").onclick = plusOne;
-document.getElementById("minus-button").onclick = minusOne;
+document.getElementById("count-up-button").onclick = countUp;
+document.getElementById("count-down-button").onclick = countDown;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/counter-minus" />
@@ -135,7 +135,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   /* ここで、テキストが中央揃えになるよう指定する */
 }
 
-#minus-button {
+#count-down-button {
   width: 80px;
   border: none; /* 枠線を表示しないよう指定 */
   font-size: 24px;
@@ -143,7 +143,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   /* その他の指定をする */
 }
 
-#plus-button {
+#count-up-button {
   width: 80px;
   border: none;
   font-size: 24px;
@@ -161,7 +161,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   text-align: center; /* テキストが中央揃えになるよう指定 */
 }
 
-#minus-button {
+#count-down-button {
   width: 80px;
   border: none;
   font-size: 24px;
@@ -170,7 +170,7 @@ CSS を使って、作成したカウンターの見た目を整えましょう�
   color: white;
 }
 
-#plus-button {
+#count-up-button {
   width: 80px;
   border: none;
   font-size: 24px;
