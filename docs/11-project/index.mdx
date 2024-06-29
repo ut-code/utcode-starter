@@ -3,16 +3,194 @@ title: プロジェクト
 ---
 
 import omikujiVideo from "./omikuji.mp4";
-import stopwatchVideo from "./stopwatch.mp4";
+import omikujiStyledVideo from "./omikuji-styled.mp4";
+import counterVideo from "./counter.mp4";
+import counterMinusVideo from "./counter-minus.mp4";
 
 これまで学んできた知識を利用して、はじめての Web アプリケーション作りに挑戦してみましょう。
 題材が思いつかない場合は、下の例を参考にしてみてください。
+
+## カウンター
+
+数を数えることができるアプリです。
+
+### ステップ 1: シンプルなカウンター
+
+数を表示する部分があります。`+` と書かれたボタンをクリックすると、数が 1 ずつ増えます。
+
+<video src={counterVideo} controls />
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <!-- 数を表示する部分をここに書く -->
+    <!-- ボタンをここに書く -->
+  </body>
+</html>
+```
+
+```js
+let counter = 0;
+
+function countUp() {
+  // ボタンがクリックされたときの処理を書く
+}
+
+// ボタンがクリックされたときにcountUp関数を呼び出す
+document.getElementById(/* ボタンのid名 */).onclick = countUp;
+```
+
+<Answer title="カウンター (ステップ 1)">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <p id="counter-value">0</p>
+    <button id="count-up-button" type="button">+</button>
+  </body>
+</html>
+```
+
+```js
+let counter = 0;
+
+function countUp() {
+  counter = counter + 1;
+  document.getElementById("counter-value").textContent = counter;
+}
+
+document.getElementById("count-up-button").onclick = countUp;
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter" />
+
+</Answer>
+
+### ステップ 2: マイナスボタンを追加
+
+`-` と書かれたボタンを新たに作成し、数を 1 つずつ減らせるようにしましょう。
+
+<video src={counterMinusVideo} controls />
+
+<Answer title="カウンター (ステップ 2)">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カウンター</title>
+  </head>
+  <body>
+    <p id="counter-value">0</p>
+    <button id="count-down-button" type="button">-</button>
+    <button id="count-up-button" type="button">+</button>
+  </body>
+</html>
+```
+
+```js
+let counter = 0;
+
+function countUp() {
+  counter = counter + 1;
+  document.getElementById("counter-value").textContent = counter;
+}
+
+function countDown() {
+  counter = counter - 1;
+  document.getElementById("counter-value").textContent = counter;
+}
+
+document.getElementById("count-up-button").onclick = countUp;
+document.getElementById("count-down-button").onclick = countDown;
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter-minus" />
+
+</Answer>
+
+### ステップ 3: スタイルを追加
+
+CSS を使って、作成したカウンターの見た目を整えましょう。
+
+これまでに扱った文字色や背景色、文字サイズだけでなく、「テキストを中央揃えにする」「角を丸くする」などの方法も調べて使ってみましょう。
+
+![見た目を整えたカウンター](./counter-minus-styled.jpg)
+
+```css
+#counter-value {
+  width: 160px; /* 幅の指定 */
+  font-size: 48px;
+  /* ここで、テキストが中央揃えになるよう指定する */
+}
+
+#count-down-button {
+  width: 80px;
+  font-size: 24px;
+  border: none; /* 枠線を表示しないよう指定 */
+  /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
+}
+
+#count-up-button {
+  width: 80px;
+  font-size: 24px;
+  border: none;
+  /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
+}
+```
+
+<Answer title="カウンター (ステップ 3)">
+
+```css
+#counter-value {
+  width: 160px;
+  font-size: 48px;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+}
+
+#count-down-button {
+  width: 80px;
+  font-size: 24px;
+  border: none;
+  border-radius: 20px; /* 角が丸くなるよう指定 */
+  background-color: royalblue;
+  color: white;
+}
+
+#count-up-button {
+  width: 80px;
+  font-size: 24px;
+  border: none;
+  border-radius: 20px; /* 角が丸くなるよう指定 */
+  color: white;
+  background-color: orangered;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter-minus-styled" />
+
+</Answer>
+
+---
 
 ## おみくじ
 
 今日の運勢をランダムで表示するアプリです。
 
-### ルール
+### ステップ 1: おみくじの機能を作成
 
 - 20%の確率で `大吉` と表示し、文字色を赤色にします
 - 50%の確率で `吉` と表示し、文字色を黒色にします
@@ -20,114 +198,147 @@ import stopwatchVideo from "./stopwatch.mp4";
 
 <video src={omikujiVideo} controls />
 
-### ヒント
+:::info ランダムな数を使う
 
-- `Math.random` <Term>関数</Term>は、呼び出すたびに変わる 0 以上 1 未満の乱数 (ランダムな数) を<Term>返し</Term>ます。
+`Math.random` <Term>関数</Term>は、呼び出すたびに変わる 0 以上 1 未満の乱数 (ランダムな数) を<Term>戻り値</Term>として<Term>返し</Term>ます。
 
 ```javascript
 document.write(Math.random()); // 0.8924949384481442
 ```
 
-- 発生させた乱数を `r` などの名前の<Term>変数</Term>に保存して確率の計算に使いましょう。すると、例えば `r` が 0 以上 0.2 未満になる確率は 20% になりますね。
+発生させた乱数を `r` などの名前の<Term>変数</Term>に保存して、確率の計算に使いましょう。
+
+例えば `r` が 0 以上 0.2 未満になる確率は 20% になりますね。同様に、`r` が 0.2 以上 0.7 未満になる確率は 50%、`r` が 0.7 以上 1 未満になる確率は 30% です。
 
 ```javascript
 let r = Math.random();
 if (r < 0.2) {
-  // 20%の確率で実行される
-} else if (条件式2) {
-  // 50%の確率で実行される
+  // 20%の確率で実行される処理を書く
+} else if (r < 0.7) {
+  // 50%の確率で実行される処理を書く
 } else {
-  // 30%の確率で実行される
+  // 30%の確率で実行される処理を書く
 }
 ```
 
-- クリックするためのボタンと、テキストを表示して色を変えるための `p` <Term>要素</Term>の両方を <Term>JavaScript</Term> から取得してみましょう。
+:::
 
 ```html
-<button id="omikuji-button" type="button">おみくじを引く</button>
-<p id="result"></p>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>おみくじ</title>
+  </head>
+  <body>
+    <!-- 結果を表示する部分をここに書く -->
+    <!-- ボタンをここに書く -->
+  </body>
+</html>
 ```
 
-```javascript
-let omikujiButton = document.getElementById("omikuji-button");
-let result = document.getElementById("result");
-
+```js
 function omikuji() {
-  result.textContent = "結果";
+  let r = Math.random();
+  if (r < 0.2) {
+    // 20%の確率で実行される処理を書く
+  } else if (r < 0.7) {
+    // 50%の確率で実行される処理を書く
+  } else {
+    // 30%の確率で実行される処理を書く
+  }
 }
-omikujiButton.onclick = omikuji;
+
+document.getElementById(/* おみくじを引くボタンのid名 */).onclick = omikuji;
 ```
 
-### 解答例
+<Answer title="おみくじ (ステップ 1)">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>おみくじ</title>
+  </head>
+  <body>
+    <p id="result">結果</p>
+    <button id="omikuji-button" type="button">おみくじを引く</button>
+  </body>
+</html>
+```
+
+```js
+function omikuji() {
+  let r = Math.random();
+  if (r < 0.2) {
+    document.getElementById("result").textContent = "大吉";
+    document.getElementById("result").style.color = "red";
+  } else if (r < 0.7) {
+    document.getElementById("result").textContent = "吉";
+    document.getElementById("result").style.color = "black";
+  } else {
+    document.getElementById("result").textContent = "凶";
+    document.getElementById("result").style.color = "blue";
+  }
+}
+
+document.getElementById("omikuji-button").onclick = omikuji;
+```
 
 <ViewSource url={import.meta.url} path="_samples/omikuji" />
 
-## ストップウォッチ
+</Answer>
 
-シンプルなストップウォッチです。
-おみくじの課題より難易度が高いです。
+### ステップ 2: スタイルを追加
 
-### ルール
+CSS を使って、作成したおみくじの見た目を整えましょう。
 
-- `スタート` ボタンをクリックすると、時刻の数え上げが開始されます
-- 1 秒ごとに表示される数値が更新されます
+これまでに扱ってきたプロパティに加えて、「テキストを縦書きにする」などの方法も調べて使ってみましょう。
 
-<video src={stopwatchVideo} controls />
+<video src={omikujiStyledVideo} controls />
 
-### ヒント
-
-- `setInterval` <Term>関数</Term>は<Term>引数</Term>をふたつ (`func`, `delay`) とり、`func` は<Term>値</Term>としての<Term>関数</Term>、`delay` は整数です。`setInterval` は、`func` に指定された<Term>関数</Term>を `delay` ミリ秒の間隔で定期的に実行します。
-
-```javascript
-function greet() {
-  document.write("<p>Hello World</p>");
+```css
+#result {
+  width: 60px;
+  height: 120px; /* 高さの指定 */
+  font-size: 48px;
+  font-family: serif; /* フォントを指定 */
+  /* ここで、テキストが中央揃えになるよう指定する */
+  /* ここで、テキストが縦書きになるよう指定する */
 }
 
-setInterval(greet, 1000);
-```
-
-このプログラムを実行すると、1 秒ずつ画面に `<p>Hello World</p>` が書き加えられていきます。
-
-- ボタン<Term>要素</Term>がクリックされたら `setInterval` <Term>関数</Term>を実行し、タイマーを開始しましょう。
-
-```javascript
-function start() {
-  setInterval(関数名, 1000);
-}
-
-let startButton = document.getElementById("start-button");
-startButton.onclick = start;
-```
-
-- 時刻は常に <Term>JavaScript</Term> の<Term>変数</Term>として保持しておくと扱いやすくなります。
-
-```javascript
-let time = 0;
-
-function tick() {
-  time += 1;
+#omikuji-button {
+  width: 160px;
+  height: 36px;
+  border: none;
+  /* ここで、角が丸くなるよう指定する */
+  /* その他の指定をする */
 }
 ```
 
-- (発展) ストップボタンを作りたい場合は、`setInterval` <Term>関数</Term>の<Term>戻り値</Term>を利用しましょう。`setInterval` の<Term>戻り値</Term>は整数で、`clearInterval` にこの<Term>値</Term>を<Term>渡す</Term>と、動作中のタイマーを解除することができます。
+<Answer title="おみくじ (ステップ 2)">
 
-```javascript
-let timerId;
-
-function start() {
-  timerId = setInterval(関数名, 1000);
+```css
+#result {
+  width: 60px;
+  height: 120px;
+  font-size: 48px;
+  font-family: serif;
+  text-align: center; /* テキストが中央揃えになるよう指定 */
+  writing-mode: vertical-rl; /* テキストが縦書きになるよう指定 */
 }
 
-function stop() {
-  clearInterval(timerId);
+#omikuji-button {
+  width: 160px;
+  height: 36px;
+  border: none;
+  border-radius: 10px; /* 角が丸くなるよう指定 */
+  color: white;
+  background-color: gray;
 }
-
-let startButton = document.getElementById("start-button");
-let stopButton = document.getElementById("stop-button");
-startButton.onclick = start;
-stopButton.onclick = stop;
 ```
 
-### 解答例
+<ViewSource url={import.meta.url} path="_samples/omikuji-styled" />
 
-<ViewSource url={import.meta.url} path="_samples/stopwatch" />
+</Answer>
