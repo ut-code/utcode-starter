@@ -197,18 +197,18 @@ HTML は次のようになっています。
 気温を表す変数 `temperature` の値に応じて、異なるメッセージが表示されるようにしてください。
 
 - 気温が 15 度未満の場合は `今日は寒いです。` と表示し、文字色を青色にします。
+- 気温が 15 度以上 30 度未満の場合は `今日は快適です。` と表示し、文字色を黒色にします。
 - 気温が 30 度以上の場合は `今日は暑いです。` と表示し、文字色を赤色にします。
-- それ以外の場合は `今日は快適です。` と表示します。
 
 ```js
 let temperature = 35;
 
 if (temperature < 15) {
   // 気温が15度未満のときの処理を書く
-} else if (30 <= temperature) {
-  // 気温が30度以上のときの処理を書く
+} else if (temperature < 30) {
+  // 気温が15度以上30度未満のときの処理を書く
 } else {
-  // それ以外のときの処理を書く
+  // 気温が30度以上のときの処理を書く
 }
 ```
 
@@ -221,13 +221,14 @@ if (temperature < 15) {
   document.getElementById("temperature-message").textContent =
     "今日は寒いです。";
   document.getElementById("temperature-message").style.color = "blue";
-} else if (30 <= temperature) {
+} else if (temperature < 30) {
+  document.getElementById("temperature-message").textContent =
+    "今日は快適です。";
+  document.getElementById("temperature-message").style.color = "black";
+} else {
   document.getElementById("temperature-message").textContent =
     "今日は暑いです。";
   document.getElementById("temperature-message").style.color = "red";
-} else {
-  document.getElementById("temperature-message").textContent =
-    "今日は快適です。";
 }
 ```
 
