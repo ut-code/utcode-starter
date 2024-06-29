@@ -128,6 +128,19 @@ JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降�
 | 文字色     | `color`            | `color`           |
 | ……         | ……                 | ……                |
 
+:::tip
+
+`document.getElementById("greeting")` の部分を変数に入れて扱うこともできます。こうすると同じ要素に対する操作を簡潔に書くことができますね。
+
+```js
+let greetingElement = document.getElementById("greeting");
+
+greetingElement.textContent = "こんばんは、世界！";
+greetingElement.style.backgroundColor = "yellow";
+```
+
+:::
+
 ### 確認問題
 
 次のような HTML で作成されたウェブサイトがあります。
@@ -158,20 +171,6 @@ document.getElementById("greeting").style.fontSize = "40px";
 <ViewSource url={import.meta.url} path="_samples/change-style" />
 
 </Answer>
-
-:::tip
-
-`document.getElementById("greeting")` の部分を変数に入れて扱うこともできます。こうすると同じ要素に対する操作を簡潔に書くことができますね。
-
-```js
-let greetingElement = document.getElementById("greeting");
-
-greetingElement.style.color = "green";
-greetingElement.style.backgroundColor = "lightgray";
-greetingElement.style.fontSize = "40px";
-```
-
-:::
 
 ## 演習問題
 
