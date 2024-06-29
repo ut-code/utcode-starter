@@ -48,7 +48,37 @@ document.getElementById("greeting").textContent = "こんばんは、世界！";
 上記のプログラムの各部分について説明します。
 
 - `document.getElementById("greeting")` の部分で、`id` 属性が `greeting` である要素を取得しています。
-- `.textContent` と書くことで要素の中身のテキストにアクセスでき、テキストの取得や変更が行えます。ここでは `こんにちは、世界！` という文字列に変更しています。
+- `.textContent` と書くことで要素の中身のテキストにアクセスでき、テキストの取得や変更が行えます。ここでは `こんばんは、世界！` という文字列に変更しています。
+
+### 確認問題
+
+次のような HTML で作成されたウェブサイトがあります。
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>ログインメッセージ</title>
+  </head>
+  <body>
+    <p id="welcome-message">ようこそ！</p>
+  </body>
+</html>
+```
+
+JavaScript を使って、`ようこそ！` という部分を `こんにちは、田中さん！` に書き換えてください。
+
+<Answer title="ウェルカムメッセージの書き換え">
+
+```js
+document.getElementById("welcome-message").textContent =
+  "こんにちは、田中さん！";
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-welcome-message" />
+
+</Answer>
 
 ## JavaScript でスタイルを操作する
 
@@ -56,19 +86,32 @@ CSS の章で扱った「色」や「文字サイズ」などのスタイルも 
 
 下記のプログラムを実行してみましょう。
 
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <p id="greeting">こんにちは、世界！</p>
+  </body>
+</html>
+```
+
 ```js
-document.getElementById("greeting").style.backgroundColor = "red";
+document.getElementById("greeting").style.backgroundColor = "yellow";
 ```
 
 <ViewSource url={import.meta.url} path="_samples/css" />
 
-すると、背景色が赤色に変わりました。
+すると、背景色が黄色に変わりました。
 
-![背景色が赤色に変わった画面](./change-style.jpg)
+![背景色が黄色に変わった画面](./change-style.jpg)
 
 - `document.getElementById("greeting")` で `id` 属性が `greeting` の要素を取得します。
 
-- `.style.backgroundColor` と書くことで要素の背景色にアクセスでき、背景色の取得や変更が行えます。ここでは `"red"` (赤色) に変更しています。
+- `.style.backgroundColor` と書くことで要素の背景色にアクセスでき、背景色の取得や変更が行えます。ここでは `"yellow"` (黄色) に変更しています。
 
 この `backgroundColor` というフレーズに聞き覚えがないでしょうか。
 そうです、CSS の章で背景色を変更する際に、`background-color` という<Term type="cssProperty">プロパティ</Term>を使いましたね。
@@ -85,13 +128,6 @@ JavaScript では、ハイフン (`-`) で繋ぐ代わりに、2単語目以降�
 | 文字色     | `color`            | `color`           |
 | ……         | ……                 | ……                |
 
-同じ要領で他のスタイルも操作してみましょう。
-例えば下の例では、文字サイズを変更しています。
-
-```js
-document.getElementById("greeting").style.fontSize = "100px";
-```
-
 :::tip
 
 `document.getElementById("greeting")` の部分を変数に入れて扱うこともできます。こうすると同じ要素に対する操作を簡潔に書くことができますね。
@@ -100,35 +136,101 @@ document.getElementById("greeting").style.fontSize = "100px";
 let greetingElement = document.getElementById("greeting");
 
 greetingElement.textContent = "こんばんは、世界！";
-greetingElement.style.backgroundColor = "red";
+greetingElement.style.backgroundColor = "yellow";
 ```
 
 :::
 
-## 課題
+### 確認問題
 
-下のような HTML で作成された買い物リストがあります。
+次のような HTML で作成されたウェブサイトがあります。
 
 ```html
-<ul>
-  <li id="item1">リンゴ</li>
-  <li id="item2">ミカン</li>
-  <li id="item3">ブドウ</li>
-</ul>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <p id="greeting">こんにちは、世界！</p>
+  </body>
+</html>
 ```
 
-![買い物リスト](./shopping-list.jpg)
+JavaScript を使って、`こんにちは、世界！` の文字色を `green` に、背景色を `lightgray` に、文字サイズを `40px` に変更してください。
 
-JavaScript を使ってこの買い物リストを書き換えて、「リンゴ」「レモン」「ブドウ」と表示されるようにしてみましょう。
-
-<Answer title="買い物リストの書き換え">
+<Answer title="スタイルの変更">
 
 ```js
-let item = document.getElementById("item2");
-
-item.textContent = "レモン";
+document.getElementById("greeting").style.color = "green";
+document.getElementById("greeting").style.backgroundColor = "lightgray";
+document.getElementById("greeting").style.fontSize = "40px";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
+<ViewSource url={import.meta.url} path="_samples/change-style" />
+
+</Answer>
+
+## 演習問題
+
+気温に応じて、異なるメッセージを表示するウェブサイトを作成しましょう。
+
+![気温に応じて異なるメッセージを表示するウェブサイト](./temperature-message.drawio.svg)
+
+HTML は次のようになっています。
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <p id="temperature-message">ここに気温に応じてメッセージが表示されます。</p>
+  </body>
+</html>
+```
+
+気温を表す変数 `temperature` の値に応じて、異なるメッセージが表示されるようにしてください。
+
+- 気温が 15 度未満の場合は `今日は寒いです。` と表示し、文字色を青色にします。
+- 気温が 15 度以上 30 度未満の場合は `今日は快適です。` と表示し、文字色を黒色にします。
+- 気温が 30 度以上の場合は `今日は暑いです。` と表示し、文字色を赤色にします。
+
+```js
+let temperature = 35;
+
+if (temperature < 15) {
+  // 気温が15度未満のときの処理を書く
+} else if (temperature < 30) {
+  // 気温が15度以上30度未満のときの処理を書く
+} else {
+  // 気温が30度以上のときの処理を書く
+}
+```
+
+<Answer title="気温に応じて異なるメッセージを表示する">
+
+```js
+let temperature = 35;
+
+if (temperature < 15) {
+  document.getElementById("temperature-message").textContent =
+    "今日は寒いです。";
+  document.getElementById("temperature-message").style.color = "blue";
+} else if (temperature < 30) {
+  document.getElementById("temperature-message").textContent =
+    "今日は快適です。";
+  document.getElementById("temperature-message").style.color = "black";
+} else {
+  document.getElementById("temperature-message").textContent =
+    "今日は暑いです。";
+  document.getElementById("temperature-message").style.color = "red";
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/temperature-message" />
 
 </Answer>
