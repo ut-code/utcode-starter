@@ -22,7 +22,7 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
   );
   const codeSandboxUrl = new URL(
     path,
-    `https://githubbox.com/ut-code/utcode-starter-lite/tree/${commitRef}/${basePath}`,
+    `https://githubbox.com/ut-code/utcode-starter/tree/${commitRef}/${basePath}`,
   );
   return (
     <div className={styles.root}>
